@@ -1,17 +1,45 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-- title: Software Engineer, Google, UK
-  from: 2018
+- title: Undergraduate, Emory | CS & Psychology
+  from: 2023
   to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  description: Maintaining 4.0 GPA, I have taken courses such as Data Structures and Algorithms,
+               Data Mining the Mind, Discrete Structures with Applications, Cognitive Psychology,
+               and others. I am avidly helping out various projects at Emory's Cognition and
+               Visualization Lab as a research assistant.
+
+- title: Undergraduate, UC Santa Barbara | Psychology
+  from: 2022
+  to: 2023
+  description: After finishing my first college year at UCSB, I transferred to Emory University to pursue
+               a double major in Computer Science and Psychology. I worked as a research assistant at Music
+               Cognition Lab, learning to conduct experiments and analyze data with different psychological
+               indices.
+
+- title: Back-End Developer, PROJECT Emory, US
+  from: 2023
+  to: present
+  description: ∙ Collaborated with cross-functional teams to develop RIDEmory, a campus-wide ride-share service accessible via web app and GroupMe.
+               ∙ Engineered and maintained MongoDB entities, leveraging Spring Data MongoDB to facilitate smooth CRUD operations and enhance data management efficiency.
+               ∙ Developed a comprehensive MVC architecture, ensuring a well-organized and modular codebase for RIDEmory.
+               ∙ Established an automated system for compiling ride information, resulting in a dynamic and up-to-date platform for users.
+               ∙ Implemented advanced ride query functionalities based on user location and departure time, optimizing the user experience and facilitating efficient ride matching.
+
+- title: Research Assistant, Cognition and Visualization Lab, US
+  from: 2023
+  to: present
+  description: ∙ Worked collaboratively under the guidance of Dr. Emily Wall to co-author a paper submitted to CSCW 2024.
+               ∙ Coordinated an online study involving 60 participants to gather valuable insights into the information space focused on user experiences of popular music streaming services’ data collection and presentation.
+               ∙ Utilized Python for data analysis and visualization, creating informative plots to illustrate key findings and enhance the presentation of user behaviors and preferences.
+               ∙ Assisted in crafting the data analysis section of the paper, ensuring a comprehensive and insightful exploration of the research results.
+
+- title: Research Assistant, Music Cognition Lab, US
+  from: 2022
+  to: 2023
+  description: ∙ Conducted research on the impact of various modes of listening on decision-making and cognitive functions in collaboration with Dr. Janet Bourne.
+               ∙ Gained proficiency in employing statistical tools such as SPSS Statistics, mixed ANOVA, and Gold-MSI for robust data analysis, contributing to the depth and accuracy of research findings.
+               ∙ Applied mixed-methods research techniques to explore the intricate relationship between listening modes and cognitive functions, expanding the understanding of how auditory experiences influence decision-making processes.
+
+- title: Intern, Namu Consulting, KR
+  from: 2022
+  to: 2022
+  description: ∙ Conducted market research to identify trends and demands in the education sector for the for-profit education corporation.
+               ∙ Designed personalized curriculums for individual clients, tailoring educational plans for improved student engagement and academic outcomes.
