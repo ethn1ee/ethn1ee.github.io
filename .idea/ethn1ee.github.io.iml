@@ -12,5 +12,6 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="wow" level="application" />
     <orderEntry type="library" name="popper.js" level="application" />
+    <orderEntry type="library" name="simple-jekyll-search" level="application" />
   </component>
 </module>
