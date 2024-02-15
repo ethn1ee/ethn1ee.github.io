@@ -4,12 +4,16 @@
 
 - name: Python
   percentage: 90
-  color: danger
+  color: success
 
 - name: HTML/CSS
   percentage: 70
-  color: warning
+  color: danger
 
 - name: JavaScript
   percentage: 60
-  color: secondary
+  color: 
+
+- name: Ruby
+  percentage: 50
+  color: 
