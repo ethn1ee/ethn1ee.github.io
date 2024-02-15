@@ -21,12 +21,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="My Portfolio Website">
-  <meta property="og:description" content="A static website showcasing projects, experiences, and my interests. Ensured seamless navigation and responsive design.">
-  <meta property="og:image" content="../assets/portfolio-screenshot.png">
+  <meta property="og:title" content="A better Hello World">
+  <meta property="og:description" content="A different “hello world” to demonstrate language features better.">
+  <meta property="og:image" content="assets/profile.jpg">
 
-  <title>My Portfolio Website</title>
-  <meta name="description" content="A static website showcasing projects, experiences, and my interests. Ensured seamless navigation and responsive design.">
+  <title>A better Hello World</title>
+  <meta name="description" content="A different “hello world” to demonstrate language features better.">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -60,9 +60,9 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
       <a class="nav-item nav-link " href="/about/">About</a>
 
@@ -74,7 +74,63 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  
+  <h1><b>A better Hello World</b></h1>
+
+<p class="post-metadata text-muted">
+  23 July 2016 -  
+  <b>less than 1 min read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#software-development">
+      <span class="tag badge badge-pill text-primary border border-primary">Software Development</span>
+    </a>
+    </p>
+
+<p>Source: <a href="https://ricostacruz.com/til/a-better-hello-world">RICO STA. CRUZ</a></p>
+
+<p>The “Hello world” program is usually the first introduction to any programming language. It looks like this in the C programming language:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* hello.c */</span>
+<span class="cp">#import &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It demonstrates the minimum amount you need to write a C program. In more modern languages however, this example isn’t as useful anymore. Here’s the same example in Python:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello.py
+</span><span class="k">print</span> <span class="s">"Hello, world!"</span>
+</code></pre></div></div>
+
+<h2 id="a-better-hello-world">A better hello world</h2>
+
+<p>In today’s world of more succint programming languages, we need a different “hello world” to demonstrate language features better. Here’s what I propose:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// hello.js
+function getGreeting (name) {
+  return `Hello, ${name}!`
+}
+
+const message = getGreeting('world')
+console.log(message)
+</code></pre></div></div>
+
+<p>This simple example demonstrates a few more things than printing strings:</p>
+
+<ul>
+  <li>How to write a function with an argument</li>
+  <li>Returning values from functions</li>
+  <li>How to use variables</li>
+  <li>The naming convention for functions (camelCase versus snake_case)</li>
+  <li>String concatenation</li>
+  <li>Comments</li>
+</ul>
+
+
 
 </div>
   </main>
