@@ -1,3 +1,10 @@
+---
+title: Clean Coding
+tags: [Software Development, Clean Code]
+style: fill
+color: info
+description: These four “clean code” tips will dramatically improve your engineering team’s productivity
+
 Source: [Jonathan Fulton](https://engineering.videoblocks.com/these-four-clean-code-tips-will-dramatically-improve-your-engineering-teams-productivity-b5bd121dd150)
 
 A few years ago at VideoBlocks we had a major code quality problem: “spaghetti” logic in most files, tons of duplication, no tests and more. Writing new features and even minor bug fixes required a couple of Tums at best and entire bottles of Pepto-Bismol and Scotch far too often. Our WTFs per minute were sky-high.
@@ -84,8 +91,6 @@ First, the function contract/interface is not easily understood without reading 
 Second, testing the function is fairly challenging given all the dependencies. Verifying that you can look a user up by email/password requires mocking out an HTTP response as well as handling the writes to the login token table.
 
 Third, the tight coupling between user lookup and login inevitably won’t satisfy all use cases in the future, where you’ll likely need to look up a user or login a user independently. In other words, it’s not “future proof”.
-
----
 
 In summary, make sure to remember and apply these four “clean code” principles to dramatically improve your team’s productivity:
 
