@@ -9,10 +9,37 @@ const Landing = () => {
       id="landing"
       className="flex items-center justify-center w-screen h-screen"
     >
-      <div className={ABCFavorit.mono.className + " text-4xl font-bold"}>
-        <h1>TAEHOON LEE</h1>
-        <h2 className="text-gray-200">CREATIVE DEVELOPER</h2>
-        <h2 className="text-gray-300">PORTFOLIO VOL.4</h2>
+      <div
+        data-scroll
+        data-scroll-position="top"
+        className={ABCFavorit.mono.className + " text-4xl font-bold"}
+      >
+        <h1
+          data-scroll
+          data-scroll-speed="3"
+          data-scroll-position="top"
+          data-scroll-direction="horizontal"
+        >
+          TAEHOON LEE
+        </h1>
+        <h2
+          data-scroll
+          data-scroll-speed="2"
+          data-scroll-position="top"
+          data-scroll-direction="horizontal"
+          className="text-gray-200"
+        >
+          CREATIVE DEVELOPER
+        </h2>
+        <h2
+          data-scroll
+          data-scroll-speed="1"
+          data-scroll-position="top"
+          data-scroll-direction="horizontal"
+          className="text-gray-300"
+        >
+          PORTFOLIO VOL.4
+        </h2>
         <div className="flex justify-between w-full text-gray-300">
           <span className="text-xs font-normal">ATLANTA, GA</span>
           <span className="text-xs font-normal">
