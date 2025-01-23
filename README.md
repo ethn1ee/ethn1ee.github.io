@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h2><img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/> Hi there, I'm Taehoon Lee! <img src="https://media.giphy.com/media/12oufCB0MyZ1Go/giphy.gif" width="50"></h2>
+<img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
+<p><em>Aspiring Creative Software Developer and CS Enthusiast <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"></em></p>
 
-## Getting Started
+[![Linkedin: ethn1ee](https://img.shields.io/badge/-ethn1ee-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ethn1ee)](https://www.linkedin.com/in/ethn1ee)
+[![GitHub followers](https://img.shields.io/github/followers/ethn1ee?label=Follow&style=social)](https://github.com/ethn1ee)
+[![Portfolio](https://img.shields.io/badge/Portfolio-ethn1ee.github.io-lightblue)](https://ethn1ee.github.io)
+![](https://visitor-badge.glitch.me/badge?page_id=ethn1ee.ethn1ee)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🚀 About Me
+I'm a junior at Emory University 📍 pursuing a dual degree in **Computer Science** and **Psychology**, with a 4.0 GPA. I thrive at the intersection of logic and creativity, building intuitive and impactful digital experiences. Currently, I am:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🌟 Designing interactive learning tools with AI-powered 3D platforms.
+- 🧠 Exploring how we engage with data in music streaming through research.
+- ✨ Enhancing user experiences for live shopping platforms.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🛠️ Technologies & Skills
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```javascript
+const taehoon = {
+    pronouns: "He" | "Him",
+    languages: ["Python", "JavaScript/TypeScript", "Java", "C++", "SQL", "Swift", "R"],
+    frontend: ["React", "Next.js", "Tailwind CSS", "D3.js", "Framer Motion"],
+    backend: ["Node.js", "Spring Boot", "Flask", "MongoDB", "Firebase"],
+    tools: ["Git", "Figma", "Linux/Unix", "XCode", "VS Code"],
+    frameworks: ["PyTorch", "Angular", "Gradio", "GSAP"],
+    askMeAbout: ["web dev", "data analysis", "AI applications", "creative coding"],
+    funFact: "I co-founded Emory Hacks, attracting 200+ participants to its debut event! 🚀"
+};
+🌟 Recent Projects
+Spotify Warped: Analyzing personal music data with Spotify API & D3.js, co-authoring research for CSCW and CHI.
+Emory Hacks: Built a dynamic hackathon platform using Next.js and animation libraries.
+Interactive XAI App: Reduced setup time by 40% for Explainable AI benchmarking using Gradio and Python.
+📫 Let’s Connect!
+💼 LinkedIn
+💻 GitHub
+🌐 Portfolio
+✉️ ethan.lee@emory.edu
+<h4><em>"Creativity meets logic to build the future. Let's collaborate!"</em></h4> ```
+Feel free to customize this further to match your style! Let me know if you'd like more edits. 😊
