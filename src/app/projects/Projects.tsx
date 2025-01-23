@@ -5,6 +5,7 @@ import ProjectCard from "./ProjectCard";
 import projects from "@/app/_data/projects.json";
 import Project from "./Project";
 import { useInView, motion } from "motion/react";
+import { myEasing } from "../_components/Easing";
 
 const data = projects as Project[];
 
@@ -20,13 +21,13 @@ const Projects = () => {
         {/* BORDER */}
         <motion.div
           animate={{ width: isInView ? "100%" : 0 }}
-          transition={{ ease: "circOut", duration: 1, delay: 0.5 }}
+          transition={{ ease: myEasing, duration: 1, delay: 0.5 }}
           className="absolute bottom-0 left-0 h-[1px] bg-gray-300"
         />
       </div>
 
       {/* CAROUSEL */}
-      <motion.div
+      <div
         ref={ref}
         className="flex w-full h-[calc(100%-32px)] relative overflow-visible"
       >
@@ -39,7 +40,7 @@ const Projects = () => {
             setActiveIndex={setActiveIndex}
           />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

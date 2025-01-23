@@ -17,7 +17,10 @@ export default {
       },
       backgroundImage: {
         noise: "url('/noise.webp')",
-      }
+      },
+      boxShadow: {
+        "2xl": "0px 4px 15px 3px rgba(0, 0, 0, 0.25)",
+      },
     },
   },
   plugins: [],

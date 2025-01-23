@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ABCFavorit } from "../_components/Fonts";
 import NoiseBG from "../_components/NoiseBG";
+import SpinningText from "../_components/SpinningText";
 
 const Landing = () => {
   return (
@@ -17,13 +18,23 @@ const Landing = () => {
       <div
         data-scroll
         data-scroll-speed="0.5"
-        className={ABCFavorit.mono.className + " text-4xl font-bold"}
+        className={
+          ABCFavorit.mono.className + " text-4xl font-bold leading-none"
+        }
       >
-        <h1>TAEHOON LEE</h1>
-        <h2 className="text-gray-200">CREATIVE DEVELOPER</h2>
-        <h2 className="text-gray-300">PORTFOLIO VOL.4</h2>
+        <h1>
+          <SpinningText fontSize={36}>TAEHOON LEE</SpinningText>
+        </h1>
+        <h2 className="text-gray-200">
+          <SpinningText fontSize={36}>CREATIVE DEVELOPER</SpinningText>
+        </h2>
+        <h2 className="text-gray-300">
+          <SpinningText fontSize={36}>PORTFOLIO VOL.4</SpinningText>
+        </h2>
         <div className="flex justify-between w-full text-gray-300">
-          <span className="text-xs font-normal">ATLANTA, GA</span>
+          <span className="text-xs font-normal">
+            <SpinningText fontSize={12}>ATLANTA, GA</SpinningText>
+          </span>
           <span className="text-xs font-normal">
             <Clock />
           </span>
@@ -54,7 +65,11 @@ const Clock = () => {
     return `${hours}:${minutes}:${seconds}`;
   }, [time, mounted]);
 
-  return <>{formattedTime}</>;
+  return (
+    <>
+      <SpinningText fontSize={12}>{formattedTime}</SpinningText>
+    </>
+  );
 };
 
 export default Landing;

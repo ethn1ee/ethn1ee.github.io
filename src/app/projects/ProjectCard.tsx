@@ -6,6 +6,10 @@ import Project from "./Project";
 import NoiseBG from "../_components/NoiseBG";
 import Image from "next/image";
 import { useRef } from "react";
+import { myEasing } from "../_components/Easing";
+import Link from "next/link";
+
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 interface ProjectCardProps {
   project: Project;
@@ -28,7 +32,7 @@ const ProjectCard = ({
       animate={{
         width: isActive ? "100%" : 200,
         transition: {
-          ease: "circOut",
+          ease: myEasing,
           duration: 0.5,
         },
       }}
@@ -40,10 +44,19 @@ const ProjectCard = ({
     >
       {/* NOISE */}
       <motion.div
-        whileHover={isActive ? {} : { opacity: 0.6 }}
-        animate={{ opacity: isActive ? 0 : isInView ? 0.4 : 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{
+          ease: myEasing,
+          duration: 1,
+          delay: 0.5 + 0.1 * project.id,
+        }}
       >
-        <NoiseBG />
+        <motion.div
+          whileHover={isActive ? {} : { opacity: 0.6 }}
+          animate={{ opacity: isActive ? 0 : isInView ? 0.4 : 0 }}
+        >
+          <NoiseBG />
+        </motion.div>
       </motion.div>
 
       {/* DATE */}
@@ -60,14 +73,18 @@ const ProjectCard = ({
       {/* BORDER */}
       <motion.div
         animate={{ height: isInView ? "100%" : 0 }}
-        transition={{ ease: "circOut", duration: 1, delay: 0.5 + 0.1 * project.id }}
+        transition={{
+          ease: myEasing,
+          duration: 1,
+          delay: 0.5 + 0.1 * project.id,
+        }}
         className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-gray-300 to-transparent"
       />
 
       {/* CONTENT */}
-      <div className="w-full h-full p-4 overflow-hidden flex flex-col justify-between items-center pb-20">
+      <div className="relative w-full h-full pb-[200] overflow-hidden flex flex-col justify-center items-center">
         {/* HEADER */}
-        <div className="flex justify-between w-full relative z-10">
+        <div className="flex justify-between w-full absolute top-0 left-0 p-4 z-10">
           <div
             style={{
               justifyContent: isActive ? "flex-start" : "space-between",
@@ -81,7 +98,7 @@ const ProjectCard = ({
                 fontWeight: isActive ? 700 : 400,
               }}
               transition={{
-                ease: "circOut",
+                ease: myEasing,
                 duration: 0.5,
               }}
               className="inline font-bold"
@@ -95,7 +112,7 @@ const ProjectCard = ({
               opacity: isActive ? 1 : 0,
               width: isActive ? "auto" : 0,
             }}
-            transition={{ ease: "circOut", duration: 0.5 }}
+            transition={{ ease: myEasing, duration: 0.5 }}
             className={
               ABCFavorit.mono.className +
               " text-right text-xs text-gray-100 text-nowrap"
@@ -121,7 +138,7 @@ const ProjectCard = ({
 
         {/* DESCRIPTION */}
         {isActive && (
-          <div className="w-full flex flex-col gap-10 relative z-10">
+          <div className="w-full box-border px-6 pb-10 flex flex-col gap-10 absolute bottom-10 left-0 z-10">
             <div className="flex justify-between w-full">
               <h3 className="font-bold text-gray-300">ABOUT</h3>
               <p className="text-gray-100 text-xs w-3/5">{project.desc}</p>
@@ -143,15 +160,21 @@ const ProjectCard = ({
               <h3 className="font-bold text-gray-300">VISIT</h3>
               <ul className="text-gray-100 text-xs w-3/5">
                 {project.links.map((link, index) => (
-                  <li key={index}>
-                    <a
+                  <motion.li
+                    whileHover={{ gap: "12px", color: "#aaaaaa" }}
+                    key={index}
+                    className="flex items-center gap-0"
+                  >
+                    <Link
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="underline"
                     >
                       {link.name}
-                    </a>
-                  </li>
+                    </Link>
+                    <ChevronRightIcon />
+                  </motion.li>
                 ))}
               </ul>
             </div>
@@ -179,12 +202,14 @@ const ImageContainer = ({ image, order }: ImageContainerProps) => {
   };
 
   return (
-    <div
+    <motion.div
+      whileHover={{ y: -10 }}
+      transition={{ ease: myEasing, duration: 0.5 }}
       style={{ ...size[image.orientation], ...position[order] }}
-      className="absolute drop-shadow-2xl rounded-md overflow-hidden"
+      className="absolute shadow-2xl rounded-md overflow-hidden"
     >
-      <Image src={image.src} alt={image.alt} fill />
-    </div>
+      <Image src={image.src} alt={image.alt} fill className="object-cover" />
+    </motion.div>
   );
 };
 
