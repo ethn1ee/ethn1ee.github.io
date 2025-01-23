@@ -10,6 +10,7 @@
 ---
 
 ### 🚀 About Me
+
 I'm a junior at Emory University 📍 pursuing a dual degree in **Computer Science** and **Psychology**, with a 4.0 GPA. I thrive at the intersection of logic and creativity, building intuitive and impactful digital experiences. Currently, I am:
 
 - 🌟 Designing interactive learning tools with AI-powered 3D platforms.
@@ -22,14 +23,12 @@ I'm a junior at Emory University 📍 pursuing a dual degree in **Computer Scien
 
 ```javascript
 const taehoon = {
+    preferred: "Ethan"
     pronouns: "He" | "Him",
     languages: ["Python", "JavaScript/TypeScript", "Java", "C++", "SQL", "Swift", "R"],
-    frontend: ["React", "Next.js", "Tailwind CSS", "D3.js", "Framer Motion"],
+    frontend: ["React", "Next.js", "Angular","Motion for React (Framer Motion)", "GSAP", "Tailwind CSS", "SwiftUI],
     backend: ["Node.js", "Spring Boot", "Flask", "MongoDB", "Firebase"],
-    tools: ["Git", "Figma", "Linux/Unix", "XCode", "VS Code"],
-    frameworks: ["PyTorch", "Angular", "Gradio", "GSAP"],
-    askMeAbout: ["web dev", "data analysis", "AI applications", "creative coding"],
-    funFact: "I co-founded Emory Hacks, attracting 200+ participants to its debut event! 🚀"
+    funFact: "I power on coffee!"
 };
 ```
 
@@ -37,10 +36,9 @@ const taehoon = {
 Spotify Warped: Analyzing personal music data with Spotify API & D3.js, co-authoring research for CSCW and CHI.
 Emory Hacks: Built a dynamic hackathon platform using Next.js and animation libraries.
 Interactive XAI App: Reduced setup time by 40% for Explainable AI benchmarking using Gradio and Python.
+
 📫 Let’s Connect!
-💼 LinkedIn
-💻 GitHub
-🌐 Portfolio
+💼 [LinkedIn](https://www.linkedin.com/in/ethn1ee/)
+💻 [GitHub](https://github.com/ethn1ee)
+🌐 [Portfolio](https://ethn1ee.github.io)
 ✉️ ethan.lee@emory.edu
-<h4><em>"Creativity meets logic to build the future. Let's collaborate!"</em></h4> ```
-Feel free to customize this further to match your style! Let me know if you'd like more edits. 😊
