@@ -13,16 +13,13 @@ export default function Home() {
 
       if (ref.current) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const scroll = new LocomotiveScroll({
-          el: ref.current,
-          smooth: true,
-        });
+        const scroll = new LocomotiveScroll({});
       }
     })();
   });
 
   return (
-    <main ref={ref}>
+    <main ref={ref} className="w-screen overflow-hidden">
       <Landing />
       <Projects />
     </main>

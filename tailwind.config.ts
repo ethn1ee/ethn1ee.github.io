@@ -15,6 +15,9 @@ export default {
         "gray-200": "#AAAAAA",
         "gray-300": "#7A7A7A",
       },
+      backgroundImage: {
+        noise: "url('/noise.webp')",
+      }
     },
   },
   plugins: [],

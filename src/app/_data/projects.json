@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "title": "eStreamly",
+    "time": "Jun 2024 - Dec 2024",
+    "tags": ["Web Development", "UI/UX Design"],
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, cumque.",
+    "tech": ["AngularJS", "TypeScript", "C#"],
+    "links": [
+      { "name": "GitHub", "href": "https://www.google.com" },
+      { "name": "GitHub", "href": "https://www.google.com" }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Emory Hacks",
+    "time": "Jun 2024 - Dec 2024",
+    "tags": ["Web Development", "UI/UX Design"],
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, cumque.",
+    "tech": ["AngularJS", "TypeScript", "C#"],
+    "links": [
+      { "name": "GitHub", "href": "https://www.google.com" },
+      { "name": "GitHub", "href": "https://www.google.com" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "eStreamly",
+    "time": "Jun 2024 - Dec 2024",
+    "tags": ["Web Development", "UI/UX Design"],
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, cumque.",
+    "tech": ["AngularJS", "TypeScript", "C#"],
+    "links": [
+      { "name": "GitHub", "href": "https://www.google.com" },
+      { "name": "GitHub", "href": "https://www.google.com" }
+    ]
+  }
+]
