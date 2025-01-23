@@ -9,6 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
 import Clock from "./Clock";
 import { myEasing } from "../_components/Easing";
+import { metadata } from "../_components/Metadata";
 
 const Landing = () => {
   return (
@@ -56,8 +57,8 @@ const Landing = () => {
 const InvisibleHeader = () => {
   return (
     <div className="hidden">
-      <h1>Taehoon&apos;s Portfolio</h1>
-      <h2>Creative Developer</h2>
+      <h1>{metadata.title ?? ""}</h1>
+      <h2>{metadata.description}</h2>
     </div>
   );
 };
@@ -76,7 +77,7 @@ const SocialLinks = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <GitHubIcon  />
+          <GitHubIcon />
         </Link>
       </motion.div>
 
@@ -91,7 +92,7 @@ const SocialLinks = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <LinkedInIcon  />
+          <LinkedInIcon />
         </Link>
       </motion.div>
     </div>
