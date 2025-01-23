@@ -125,16 +125,18 @@ const ProjectCard = ({
         </div>
 
         {/* IMAGES */}
-        {isActive && (
-          <div className="w-[400px] h-[440px] relative z-10">
-            {project.images.length === 2 && (
-              <>
-                <ImageContainer image={project.images[0]} order={1} />
-                <ImageContainer image={project.images[1]} order={2} />
-              </>
-            )}
-          </div>
-        )}
+        <motion.div
+          animate={{ opacity: isActive ? 1 : 0 }}
+          transition={{ ease: myEasing, duration: 0.5}}
+          className="w-[400px] h-[440px] relative z-10"
+        >
+          {project.images.length === 2 && (
+            <>
+              <ImageContainer image={project.images[0]} order={1} />
+              <ImageContainer image={project.images[1]} order={2} />
+            </>
+          )}
+        </motion.div>
 
         {/* DESCRIPTION */}
         {isActive && (
