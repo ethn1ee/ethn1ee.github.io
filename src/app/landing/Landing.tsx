@@ -11,6 +11,8 @@ const Landing = () => {
       id="landing"
       className="flex items-center justify-center w-full h-screen"
     >
+      <InvisibleHeader />
+
       <div className="opacity-40">
         <NoiseBG />
       </div>
@@ -22,9 +24,9 @@ const Landing = () => {
           ABCFavorit.mono.className + " text-4xl font-bold leading-none"
         }
       >
-        <h1>
+        <h2>
           <SpinningText fontSize={36}>TAEHOON LEE</SpinningText>
-        </h1>
+        </h2>
         <h2 className="text-gray-200">
           <SpinningText fontSize={36}>CREATIVE DEVELOPER</SpinningText>
         </h2>
@@ -69,6 +71,15 @@ const Clock = () => {
     <>
       <SpinningText fontSize={12}>{formattedTime}</SpinningText>
     </>
+  );
+};
+
+const InvisibleHeader = () => {
+  return (
+    <div className="hidden">
+      <h1>Taehoon&apos;s Portfolio</h1>
+      <h2>Creative Developer</h2>
+    </div>
   );
 };
 

@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   description: "Creative Developer",
   openGraph: {
     title: "Taehoon's Portfolio",
-    description: "Creative Developer",
+    description:
+      "Hi there! I’m Taehoon Lee, a Computer Science student and aspiring software developer who loves creating cool and impactful digital experiences. From building AI-powered platforms to crafting interactive web designs, I’m all about turning creative ideas into reality. Check out my projects, explore my skills in Python, JavaScript, React, and more, and let’s connect to build something amazing together!",
     url: "https://ethn1ee.github.io",
     siteName: "Taehoon's Portfolio",
     images: [
