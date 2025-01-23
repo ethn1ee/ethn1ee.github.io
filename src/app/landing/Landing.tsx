@@ -9,7 +9,6 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
 import Clock from "./Clock";
 import { myEasing } from "../_components/Easing";
-import { metadata } from "../_components/Metadata";
 
 const Landing = () => {
   return (
@@ -55,10 +54,39 @@ const Landing = () => {
 };
 
 const InvisibleHeader = () => {
+  const title = "Taehoon's Portfolio";
+  const description = `Hi there! I’m Taehoon Lee, a Computer Science student and aspiring
+        software developer who loves creating cool and impactful digital
+        experiences. From building AI-powered platforms to crafting interactive
+        web designs, I’m all about turning creative ideas into reality. Check
+        out my projects, explore my skills in Python, JavaScript, React, and
+        more, and let’s connect to build something amazing together!`;
+  const keywords = [
+    "Creative Developer",
+    "Portfolio",
+    "Web Development",
+    "UI/UX Design",
+    "Taehoon",
+    "Taehoon Lee",
+    "Ethan",
+    "Ethan Lee",
+    "GitHub",
+    "Software",
+    "Developer",
+    "Projects",
+    "ethn1ee",
+    "ethn1ee.github.io",
+  ];
+
   return (
-    <div className="hidden">
-      <h1>{String(metadata.title) ?? ""}</h1>
-      <h2>{metadata.description}</h2>
+    <div className="absolute top-0 left-0 hidden">
+      <h1>{title}</h1>
+      <h2>{description}</h2>
+      <h3>
+        {keywords.map((keyword, index) => (
+          <span key={index}>{keyword}, </span>
+        ))}
+      </h3>
     </div>
   );
 };
