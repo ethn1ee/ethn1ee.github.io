@@ -14,7 +14,9 @@ export default function RootLayout({
         <meta name="description" content={metadata.description ?? ""} />
         <meta
           name="keywords"
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : ""}
+          content={
+            Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : ""
+          }
         />
 
         <meta property="og:title" content={String(metadata.title) ?? ""} />

@@ -57,7 +57,7 @@ const Landing = () => {
 const InvisibleHeader = () => {
   return (
     <div className="hidden">
-      <h1>{metadata.title ?? ""}</h1>
+      <h1>{String(metadata.title) ?? ""}</h1>
       <h2>{metadata.description}</h2>
     </div>
   );
