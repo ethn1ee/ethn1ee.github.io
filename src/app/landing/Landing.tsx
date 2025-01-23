@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { motion } from "motion/react";
 import { ABCFavorit } from "../_components/Fonts";
 import NoiseBG from "../_components/NoiseBG";
 import SpinningText from "../_components/SpinningText";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Link from "next/link";
+import Clock from "./Clock";
+import { myEasing } from "../_components/Easing";
 
 const Landing = () => {
   return (
@@ -12,6 +17,7 @@ const Landing = () => {
       className="flex items-center justify-center w-full h-screen"
     >
       <InvisibleHeader />
+      <SocialLinks />
 
       <div className="opacity-40">
         <NoiseBG />
@@ -21,7 +27,8 @@ const Landing = () => {
         data-scroll
         data-scroll-speed="0.5"
         className={
-          ABCFavorit.mono.className + " text-4xl font-bold leading-none"
+          ABCFavorit.mono.className +
+          " text-4xl font-bold leading-none relative z-10"
         }
       >
         <h2>
@@ -46,39 +53,47 @@ const Landing = () => {
   );
 };
 
-const Clock = () => {
-  const [time, setTime] = useState<Date>(new Date());
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const formattedTime = useMemo<string>(() => {
-    if (!mounted) return "";
-    const hours = time.getHours().toString().padStart(2, "0");
-    const minutes = time.getMinutes().toString().padStart(2, "0");
-    const seconds = time.getSeconds().toString().padStart(2, "0");
-    return `${hours}:${minutes}:${seconds}`;
-  }, [time, mounted]);
-
-  return (
-    <>
-      <SpinningText fontSize={12}>{formattedTime}</SpinningText>
-    </>
-  );
-};
-
 const InvisibleHeader = () => {
   return (
     <div className="hidden">
       <h1>Taehoon&apos;s Portfolio</h1>
       <h2>Creative Developer</h2>
+    </div>
+  );
+};
+
+const SocialLinks = () => {
+  return (
+    <div className="absolute top-4 right-4 flex gap-4 z-10">
+      {/* GITHUB */}
+      <motion.div
+        whileHover={{ color: "#ffffff" }}
+        transition={{ duration: 0.3, ease: myEasing }}
+        className="text-gray-200"
+      >
+        <Link
+          href={"https://github.com/ethn1ee"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitHubIcon  />
+        </Link>
+      </motion.div>
+
+      {/* LINKEDIN */}
+      <motion.div
+        whileHover={{ color: "#ffffff" }}
+        transition={{ duration: 0.3, ease: myEasing }}
+        className="text-gray-200"
+      >
+        <Link
+          href={"https://www.linkedin.com/in/taehoon-lee-/"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <LinkedInIcon  />
+        </Link>
+      </motion.div>
     </div>
   );
 };
