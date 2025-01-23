@@ -31,6 +31,8 @@ const taehoon = {
     askMeAbout: ["web dev", "data analysis", "AI applications", "creative coding"],
     funFact: "I co-founded Emory Hacks, attracting 200+ participants to its debut event! 🚀"
 };
+```
+
 🌟 Recent Projects
 Spotify Warped: Analyzing personal music data with Spotify API & D3.js, co-authoring research for CSCW and CHI.
 Emory Hacks: Built a dynamic hackathon platform using Next.js and animation libraries.
