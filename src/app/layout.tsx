@@ -26,7 +26,7 @@ export default function RootLayout({
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@your_twitter_handle" />
-        <meta name="twitter:title" content={metadata.title ?? ""} />
+        <meta name="twitter:title" content={String(metadata.title) ?? ""} />
         <meta name="twitter:description" content={metadata.description ?? ""} />
         <meta
           name="twitter:image"
