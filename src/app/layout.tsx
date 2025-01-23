@@ -33,6 +33,11 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Creative Developer" />
+        <meta
+          name="keywords"
+          content="Creative Developer, Portfolio, Web Development, UI/UX Design, Taehoon, Taehoon Lee, Ethan, Ethan Lee, GitHub, Software, Developer, Projects, ethn1ee, ethn1ee.github.io"
+        />
+
         <meta property="og:title" content="Taehoon's Portfolio" />
         <meta property="og:description" content="Creative Developer" />
         <meta property="og:url" content="https://ethn1ee.github.io" />
