@@ -52,8 +52,8 @@ const ProjectCard = ({
         }}
       >
         <motion.div
-          whileHover={isActive ? {} : { opacity: 0.6 }}
-          animate={{ opacity: isActive ? 0 : isInView ? 0.4 : 0 }}
+          animate={{ opacity: isActive ? 0 : 0.4 }}
+          className="absolute top-0 left-0 w-full h-full"
         >
           <NoiseBG />
         </motion.div>
