@@ -82,9 +82,9 @@ const ProjectCard = ({
       />
 
       {/* CONTENT */}
-      <div className="relative w-full h-full pb-[200] overflow-hidden flex flex-col justify-center items-center">
+      <div className="relative w-full h-full overflow-hidden flex flex-col justify-between items-center">
         {/* HEADER */}
-        <div className="flex justify-between w-full absolute top-0 left-0 p-4 z-10">
+        <div className="flex justify-between w-full relative p-4 z-10">
           <div
             style={{
               justifyContent: isActive ? "flex-start" : "space-between",
@@ -127,7 +127,7 @@ const ProjectCard = ({
         {/* IMAGES */}
         <motion.div
           animate={{ opacity: isActive ? 1 : 0 }}
-          transition={{ ease: myEasing, duration: 0.3}}
+          transition={{ ease: myEasing, duration: 0.3 }}
           className="w-[400px] h-[440px] relative z-10"
         >
           {project.images.length === 2 && (
@@ -139,49 +139,50 @@ const ProjectCard = ({
         </motion.div>
 
         {/* DESCRIPTION */}
-        {isActive && (
-          <div className="w-full box-border px-6 pb-10 flex flex-col gap-10 absolute bottom-10 left-0 z-10">
-            <div className="flex justify-between w-full">
-              <h3 className="font-bold text-gray-300">ABOUT</h3>
-              <p className="text-gray-100 text-xs w-3/5">{project.desc}</p>
-            </div>
-
-            <div className="flex justify-between w-full">
-              <h3 className="font-bold text-gray-300">MADE WITH</h3>
-              <p className="text-gray-100 text-xs w-3/5">
-                {project.tech.map((tech, index) => (
-                  <span key={index}>
-                    {tech}
-                    {index !== project.tech.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </p>
-            </div>
-
-            <div className="flex justify-between w-full">
-              <h3 className="font-bold text-gray-300">VISIT</h3>
-              <ul className="text-gray-100 text-xs w-3/5">
-                {project.links.map((link, index) => (
-                  <motion.li
-                    whileHover={{ gap: "12px", color: "#aaaaaa" }}
-                    key={index}
-                    className="flex items-center gap-0"
-                  >
-                    <Link
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline"
-                    >
-                      {link.name}
-                    </Link>
-                    <ChevronRightIcon />
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+        <motion.div
+          animate={{ opacity: isActive ? 1 : 0 }}
+          className="w-full h-[300px] box-border px-10 flex flex-col gap-10 relative bottom-10 left-0 z-10"
+        >
+          <div className="flex justify-between w-full">
+            <h3 className="font-bold text-gray-300">ABOUT</h3>
+            <p className="text-gray-100 text-xs w-3/5">{project.desc}</p>
           </div>
-        )}
+
+          <div className="flex justify-between w-full">
+            <h3 className="font-bold text-gray-300">MADE WITH</h3>
+            <p className="text-gray-100 text-xs w-3/5">
+              {project.tech.map((tech, index) => (
+                <span key={index}>
+                  {tech}
+                  {index !== project.tech.length - 1 ? ", " : ""}
+                </span>
+              ))}
+            </p>
+          </div>
+
+          <div className="flex justify-between w-full">
+            <h3 className="font-bold text-gray-300">VISIT</h3>
+            <ul className="text-gray-100 text-xs w-3/5">
+              {project.links.map((link, index) => (
+                <motion.li
+                  whileHover={{ gap: "12px", color: "#aaaaaa" }}
+                  key={index}
+                  className="flex items-center gap-0"
+                >
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    {link.name}
+                  </Link>
+                  <ChevronRightIcon />
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );
