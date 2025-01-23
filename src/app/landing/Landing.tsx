@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ABCFavorit } from "../_components/Fonts";
+import NoiseBG from "../_components/NoiseBG";
 
 const Landing = () => {
   return (
@@ -9,10 +10,13 @@ const Landing = () => {
       id="landing"
       className="flex items-center justify-center w-full h-screen"
     >
+      <div className="opacity-40">
+        <NoiseBG />
+      </div>
+
       <div
-        // data-scroll
-        // data-scroll-speed="1.5"
-        // data-scroll-position="top"
+        data-scroll
+        data-scroll-speed="0.5"
         className={ABCFavorit.mono.className + " text-4xl font-bold"}
       >
         <h1>TAEHOON LEE</h1>

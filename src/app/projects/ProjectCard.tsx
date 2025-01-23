@@ -1,9 +1,11 @@
 "use client";
 
 import { ABCFavorit } from "../_components/Fonts";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import Project from "./Project";
 import NoiseBG from "../_components/NoiseBG";
+import Image from "next/image";
+import { useRef } from "react";
 
 interface ProjectCardProps {
   project: Project;
@@ -16,12 +18,15 @@ const ProjectCard = ({
   setActiveIndex,
   activeIndex,
 }: ProjectCardProps) => {
-  const isActive = project.id === activeIndex;
+  const isActive = activeIndex === project.id;
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
 
   return (
     <motion.div
+      ref={ref}
       animate={{
-        width: isActive ? 480 : 200,
+        width: isActive ? "100%" : 200,
         transition: {
           ease: "circOut",
           duration: 0.5,
@@ -30,13 +35,13 @@ const ProjectCard = ({
       onClick={() => setActiveIndex(isActive ? -1 : project.id)}
       className={
         ABCFavorit.extended.className +
-        " p-4 shrink-0 w-[480px] h-screen relative cursor-pointer overflow-visible"
+        " shrink-0 max-w-[520px] h-screen relative cursor-pointer overflow-visible box-border"
       }
     >
       {/* NOISE */}
       <motion.div
         whileHover={isActive ? {} : { opacity: 0.6 }}
-        animate={{ opacity: isActive ? 0 : 0.3 }}
+        animate={{ opacity: isActive ? 0 : isInView ? 0.4 : 0 }}
       >
         <NoiseBG />
       </motion.div>
@@ -46,30 +51,44 @@ const ProjectCard = ({
         animate={{ opacity: isActive ? 1 : 0 }}
         className={
           ABCFavorit.mono.className +
-          " absolute -top-5 left-3 text-xs text-gray-200"
+          " absolute -top-6 left-3 text-xs text-gray-200"
         }
       >
         {project.time}
       </motion.p>
 
       {/* BORDER */}
-      <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-gray-300 to-transparent" />
+      <motion.div
+        animate={{ height: isInView ? "100%" : 0 }}
+        transition={{ ease: "circOut", duration: 1, delay: 0.5 + 0.1 * project.id }}
+        className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-gray-300 to-transparent"
+      />
 
       {/* CONTENT */}
-      <div className="w-full h-full overflow-hidden">
+      <div className="w-full h-full p-4 overflow-hidden flex flex-col justify-between items-center pb-20">
         {/* HEADER */}
         <div className="flex justify-between w-full relative z-10">
-          <motion.div
-            layout
+          <div
             style={{
-              justifyContent: isActive ? "start" : "space-between",
+              justifyContent: isActive ? "flex-start" : "space-between",
             }}
-            transition={{ ease: "circOut", duration: 0.5 }}
-            className="flex w-full h-fit"
+            className="flex w-full h-fit  leading-none"
           >
             <span className="mr-4 text-gray-300 text-xs">{project.id + 1}</span>
-            <h2 className="inline font-bold leading-none">{project.title}</h2>
-          </motion.div>
+            <motion.h2
+              layout
+              animate={{
+                fontWeight: isActive ? 700 : 400,
+              }}
+              transition={{
+                ease: "circOut",
+                duration: 0.5,
+              }}
+              className="inline font-bold"
+            >
+              {project.title}
+            </motion.h2>
+          </div>
 
           <motion.ul
             animate={{
@@ -90,12 +109,19 @@ const ProjectCard = ({
 
         {/* IMAGES */}
         {isActive && (
-          <div className="bg-gray-800 w-full h-1/3 my-32 relative z-10"></div>
+          <div className="w-[400px] h-[440px] relative z-10">
+            {project.images.length === 2 && (
+              <>
+                <ImageContainer image={project.images[0]} order={1} />
+                <ImageContainer image={project.images[1]} order={2} />
+              </>
+            )}
+          </div>
         )}
 
         {/* DESCRIPTION */}
         {isActive && (
-          <div className="mx-6 flex flex-col gap-10 relative z-10">
+          <div className="w-full flex flex-col gap-10 relative z-10">
             <div className="flex justify-between w-full">
               <h3 className="font-bold text-gray-300">ABOUT</h3>
               <p className="text-gray-100 text-xs w-3/5">{project.desc}</p>
@@ -133,6 +159,32 @@ const ProjectCard = ({
         )}
       </div>
     </motion.div>
+  );
+};
+
+interface ImageContainerProps {
+  image: { src: string; alt: string; orientation: "landscape" | "portrait" };
+  order: 1 | 2;
+}
+
+const ImageContainer = ({ image, order }: ImageContainerProps) => {
+  const size = {
+    landscape: { width: 360, height: 258 },
+    portrait: { width: 167, height: 360 },
+  };
+
+  const position = {
+    1: { top: 0, left: 0, zIndex: 20 },
+    2: { bottom: 0, right: 0 },
+  };
+
+  return (
+    <div
+      style={{ ...size[image.orientation], ...position[order] }}
+      className="absolute drop-shadow-2xl rounded-md overflow-hidden"
+    >
+      <Image src={image.src} alt={image.alt} fill />
+    </div>
   );
 };
 
