@@ -127,7 +127,7 @@ const ProjectCard = ({
         {/* IMAGES */}
         <motion.div
           animate={{ opacity: isActive ? 1 : 0 }}
-          transition={{ ease: myEasing, duration: 0.5}}
+          transition={{ ease: myEasing, duration: 0.3}}
           className="w-[400px] h-[440px] relative z-10"
         >
           {project.images.length === 2 && (
