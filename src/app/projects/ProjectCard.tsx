@@ -208,7 +208,13 @@ const ImageContainer = ({ image, order }: ImageContainerProps) => {
       style={{ ...size[image.orientation], ...position[order] }}
       className="absolute shadow-2xl rounded-md overflow-hidden"
     >
-      <Image src={image.src} alt={image.alt} fill className="object-cover" />
+      <Image
+        priority
+        src={image.src}
+        alt={image.alt}
+        fill
+        className="object-cover"
+      />
     </motion.div>
   );
 };
