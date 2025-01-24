@@ -4,7 +4,7 @@ import { motion, useMotionValue } from "motion/react";
 import { useEffect } from "react";
 
 const Cursor = () => {
-  const cursorSize = 20;
+  const cursorSize = 30;
 
   const mouse = {
     x: useMotionValue(0),
@@ -35,7 +35,7 @@ const Cursor = () => {
         backgroundImage:
           "radial-gradient(50% 50% at 50% 50%, #D3D3D3 0%, rgba(211, 211, 211, 0.00) 100%)",
       }}
-      className="fixed pointer-events-none z-10 mix-blend-difference"
+      className="fixed pointer-events-none z-0 mix-blend-difference"
     ></motion.div>
   );
 };
