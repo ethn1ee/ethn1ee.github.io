@@ -1,20 +1,44 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import { motion, useMotionValue } from "motion/react";
 import { useEffect } from "react";
 
 const Cursor = () => {
-  const cursorSize = 30;
+  const cursorCount = 20;
 
-  const mouse = {
-    x: useMotionValue(0),
-    y: useMotionValue(0),
-  };
+  const cursorSizes = Array.from(
+    { length: cursorCount },
+    (_, i) => 30 - (30 / cursorCount) * i
+  );
 
-  const handleMouseMove = (e: { clientX: number; clientY: number }) => {
+  // Generate mouse array based on cursorSizes
+  const mouse = cursorSizes.map(() => ({
+    x: useMotionValue(-30),
+    y: useMotionValue(-30),
+  }));
+
+  // // Generate smoothOptions array based on cursorSizes
+  // const smoothOptions = cursorSizes.map((_, i) => ({
+  //   damping: 10000 - i,
+  //   stiffness: 100000 - i,
+  //   mass: 1,
+  // }));
+
+  // // Generate smoothMouse array
+  // const smoothMouse = mouse.map((m, i) => ({
+  //   x: useSpring(m.x, smoothOptions[i]),
+  //   y: useSpring(m.y, smoothOptions[i]),
+  // }));
+
+  const handleMouseMove = (e: MouseEvent) => {
     const { clientX, clientY } = e;
-    mouse.x.set(clientX - cursorSize / 2);
-    mouse.y.set(clientY - cursorSize / 2);
+    mouse.forEach(({ x, y }, index) => {
+      setTimeout(() => {
+        x.set(clientX - cursorSizes[index] / 2);
+        y.set(clientY - cursorSizes[index] / 2);
+      }, index * 10);
+    });
   };
 
   useEffect(() => {
@@ -25,18 +49,21 @@ const Cursor = () => {
   });
 
   return (
-    <motion.div
-      style={{
-        x: mouse.x,
-        y: mouse.y,
-        width: cursorSize,
-        height: cursorSize,
-        borderRadius: cursorSize,
-        backgroundImage:
-          "radial-gradient(50% 50% at 50% 50%, #D3D3D3 0%, rgba(211, 211, 211, 0.00) 100%)",
-      }}
-      className="fixed pointer-events-none z-0 mix-blend-difference"
-    ></motion.div>
+    <>
+      {cursorSizes.map((cursorSize, index) => (
+        <motion.div
+          key={index}
+          style={{
+            x: mouse[index].x,
+            y: mouse[index].y,
+            width: cursorSize,
+            height: cursorSize,
+            borderRadius: cursorSize,
+          }}
+          className={`fixed pointer-events-none opacity-5 bg-gray-100 z-[5]`}
+        />
+      ))}
+    </>
   );
 };
 
