@@ -60,7 +60,7 @@ const Cursor = () => {
             height: cursorSize,
             borderRadius: cursorSize,
           }}
-          className={`fixed pointer-events-none opacity-5 bg-gray-100 z-[5]`}
+          className={`fixed pointer-events-none opacity-[0.04] bg-white z-[5]`}
         />
       ))}
     </>
