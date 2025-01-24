@@ -33,19 +33,19 @@ const Projects = () => {
           pin: true,
           scrub: 1,
           invalidateOnRefresh: true,
-          snap: {
-            snapTo: [0, 1],
-            duration: { min: 0.1, max: 0.3 },
-            delay: 0,
-            ease: "power2.inOut",
-          },
+          // snap: {
+          //   snapTo: [0, 1],
+          //   duration: { min: 0.1, max: 0.3 },
+          //   delay: 0,
+          //   ease: "power2.inOut",
+          // },
         },
       });
     }
   }, []);
 
   return (
-    <section id="projects" ref={ref} className="w-fit h-screen overflow-scroll">
+    <section id="projects" ref={ref} className="w-fit h-screen">
       {/* DATE DISPLAY */}
       <div className="h-8 w-full relative">
         {/* BORDER */}
@@ -57,7 +57,7 @@ const Projects = () => {
       </div>
 
       {/* CAROUSEL */}
-      <div className="flex w-full h-[calc(100%-32px)] relative overflow-visible">
+      <div className="flex w-fit h-[calc(100%-32px)] relative overflow-visible">
         {/* CARDS */}
         {data.map((project, index) => (
           <ProjectCard
