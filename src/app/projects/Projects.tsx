@@ -5,13 +5,11 @@ import ProjectCard from "./ProjectCard";
 import projects from "@/app/_data/projects.json";
 import Project from "./Project";
 import { useInView, motion } from "motion/react";
-import { myEasing } from "../_components/Easing";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CustomEase from "gsap/CustomEase";
+import { myEasing } from "../_components/Easing";
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(CustomEase);
 
 const data = projects as Project[];
 
@@ -19,8 +17,6 @@ const Projects = () => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
-
-  CustomEase.create("myEasing", myEasing);
 
   useEffect(() => {
     const element = ref.current;
@@ -41,7 +37,7 @@ const Projects = () => {
             snapTo: [0, 1],
             duration: { min: 0.1, max: 0.3 },
             delay: 0,
-            ease: "myEasing",
+            ease: "power2.inOut",
           },
         },
       });
