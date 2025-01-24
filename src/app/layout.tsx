@@ -21,6 +21,10 @@ export const metadata: Metadata = {
     "Projects",
     "ethn1ee",
     "ethn1ee.github.io",
+    "Taehoon's Portfolio",
+    "Taehoon Lee Portfolio",
+    "Ethan's Portfolio",
+    "Ethan Lee Portfolio",
   ],
 
   openGraph: {
