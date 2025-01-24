@@ -8,8 +8,10 @@ import { useInView, motion } from "motion/react";
 import { myEasing } from "../_components/Easing";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CustomEase from "gsap/CustomEase";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(CustomEase);
 
 const data = projects as Project[];
 
@@ -17,6 +19,8 @@ const Projects = () => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
+
+  CustomEase.create("myEasing", myEasing);
 
   useEffect(() => {
     const element = ref.current;
@@ -37,7 +41,7 @@ const Projects = () => {
             snapTo: [0, 1],
             duration: { min: 0.1, max: 0.3 },
             delay: 0,
-            ease: CustomEase.create("custom", myEasing),
+            ease: "myEasing",
           },
         },
       });
