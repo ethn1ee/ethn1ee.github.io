@@ -9,8 +9,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
 import Clock from "./Clock";
 import { myEasing } from "../_components/Easing";
+import { useEffect } from "react";
 
 const Landing = () => {
+  useEffect(() => {}, []);
+
   return (
     <section
       id="landing"
@@ -28,21 +31,21 @@ const Landing = () => {
         data-scroll-speed="0.5"
         className={
           ABCFavorit.mono.className +
-          " text-4xl font-bold leading-none relative z-10"
+          " text-3xl sm:text-4xl font-bold leading-none relative z-10"
         }
       >
-        <h2>
-          <SpinningText fontSize={36}>TAEHOON LEE</SpinningText>
-        </h2>
-        <h2 className="text-gray-200">
-          <SpinningText fontSize={36}>CREATIVE DEVELOPER</SpinningText>
-        </h2>
-        <h2 className="text-gray-300">
-          <SpinningText fontSize={36}>PORTFOLIO VOL.4</SpinningText>
-        </h2>
+        <div>
+          <SpinningText>TAEHOON LEE</SpinningText>
+        </div>
+        <div className="text-gray-200">
+          <SpinningText>CREATIVE DEVELOPER</SpinningText>
+        </div>
+        <div className="text-gray-300">
+          <SpinningText>PORTFOLIO VOL.4</SpinningText>
+        </div>
         <div className="flex justify-between w-full text-gray-300">
           <span className="text-xs font-normal">
-            <SpinningText fontSize={12}>ATLANTA, GA</SpinningText>
+            <SpinningText>ATLANTA, GA</SpinningText>
           </span>
           <span className="text-xs font-normal">
             <Clock />

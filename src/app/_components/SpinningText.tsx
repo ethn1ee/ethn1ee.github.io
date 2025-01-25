@@ -2,20 +2,41 @@
 
 import { motion } from "motion/react";
 import { myEasing } from "./Easing";
+import { useEffect, useRef, useState } from "react";
 
 interface SpinningTextProps {
   children: string;
-  fontSize: number;
 }
 
-const SpinningText = ({ children, fontSize }: SpinningTextProps) => {
+const SpinningText = ({ children }: SpinningTextProps) => {
+  const spanRef = useRef<HTMLSpanElement>(null);
+  const [computedFontSize, setComputedFontSize] = useState<number>(16);
+
+  useEffect(() => {
+    if (spanRef.current === null) return;
+
+    const handleResize = () => {
+      const computedStyle = getComputedStyle(spanRef.current!);
+      setComputedFontSize(parseFloat(computedStyle.fontSize));
+    };
+    handleResize(); // Initial call
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <span
-      style={{ height: fontSize }}
+      ref={spanRef}
+      style={{ height: computedFontSize }}
       className={`inline-flex w-fit overflow-hidden`}
     >
       {children.split("").map((char, index) => (
-        <SpinningCharacter key={index} char={char} fontSize={fontSize} />
+        <SpinningCharacter
+          key={index}
+          char={char}
+          fontSize={computedFontSize}
+        />
       ))}
     </span>
   );

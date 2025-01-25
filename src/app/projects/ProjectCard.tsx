@@ -29,17 +29,18 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={ref}
-      animate={{
-        width: isActive ? "100%" : 200,
-        transition: {
-          ease: myEasing,
-          duration: 0.5,
-        },
+      // animate={{
+      //   width: isActive ? "100%" : 200,
+      // }}
+      animate={{ width: isActive ? "100vw" : 200 }}
+      transition={{
+        ease: myEasing,
+        duration: 0.5,
       }}
       onClick={() => setActiveIndex(isActive ? -1 : project.id)}
       className={
         ABCFavorit.extended.className +
-        " shrink-0 max-w-[520px] h-screen relative cursor-pointer overflow-visible box-border"
+        " shrink-0 w-screen max-w-[520px] h-screen relative cursor-pointer overflow-visible box-border"
       }
     >
       {/* NOISE */}
@@ -128,7 +129,7 @@ const ProjectCard = ({
         <motion.div
           animate={{ opacity: isActive ? 1 : 0 }}
           transition={{ ease: myEasing, duration: 0.3 }}
-          className="w-[400px] h-[440px] relative z-10"
+          className="w-[80vw] h-[80vw] max-w-[400px] max-h-[400px] relative z-10"
         >
           {project.images.length === 2 && (
             <>
@@ -141,16 +142,16 @@ const ProjectCard = ({
         {/* DESCRIPTION */}
         <motion.div
           animate={{ opacity: isActive ? 1 : 0 }}
-          className="w-full h-[300px] box-border px-10 flex flex-col gap-10 relative bottom-10 left-0 z-10"
+          className="w-full h-[300px] box-border px-10 flex flex-col gap-10 relative bottom-4 sm:bottom-10 left-0 z-10"
         >
-          <div className="flex justify-between w-full">
-            <h3 className="font-bold text-gray-300">ABOUT</h3>
-            <p className="text-gray-100 text-xs w-3/5">{project.desc}</p>
+          <div className="flex justify-between w-full gap-4">
+            <h3 className="text-base sm:text-lg font-bold text-gray-300">ABOUT</h3>
+            <p className="text-gray-100 text-xs w-3/5 shrink-0">{project.desc}</p>
           </div>
 
-          <div className="flex justify-between w-full">
-            <h3 className="font-bold text-gray-300">MADE WITH</h3>
-            <p className="text-gray-100 text-xs w-3/5">
+          <div className="flex justify-between w-full gap-4">
+            <h3 className="text-base sm:text-lg font-bold text-gray-300">MADE WITH</h3>
+            <p className="text-gray-100 text-xs w-3/5 shrink-0">
               {project.tech.map((tech, index) => (
                 <span key={index}>
                   {tech}
@@ -160,9 +161,9 @@ const ProjectCard = ({
             </p>
           </div>
 
-          <div className="flex justify-between w-full">
-            <h3 className="font-bold text-gray-300">VISIT</h3>
-            <ul className="text-gray-100 text-xs w-3/5">
+          <div className="flex justify-between w-full gap-4">
+            <h3 className="text-base sm:text-lg font-bold text-gray-300">VISIT</h3>
+            <ul className="text-gray-100 text-xs w-3/5 shrink-0">
               {project.links.map((link, index) => (
                 <motion.li
                   whileHover={{ gap: "12px", color: "#aaaaaa" }}
@@ -195,21 +196,22 @@ interface ImageContainerProps {
 
 const ImageContainer = ({ image, order }: ImageContainerProps) => {
   const size = {
-    landscape: { width: 360, height: 258 },
-    portrait: { width: 167, height: 360 },
+    landscape: "w-[90%] h-[64.5%]",
+    portrait: "w-[41.8%] h-[90%]",
   };
 
   const position = {
-    1: { top: 0, left: 0, zIndex: 20 },
-    2: { bottom: 0, right: 0 },
+    1: "top-0 left-0 z-20",
+    2: "bottom-0 right-0",
   };
 
   return (
     <motion.div
       whileHover={{ y: -10 }}
       transition={{ ease: myEasing, duration: 0.5 }}
-      style={{ ...size[image.orientation], ...position[order] }}
-      className="absolute shadow-2xl rounded-md overflow-hidden"
+      className={`absolute shadow-2xl rounded-md overflow-hidden ${
+        size[image.orientation]
+      } ${position[order]}`}
     >
       <Image
         priority
