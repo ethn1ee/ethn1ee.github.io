@@ -26,7 +26,7 @@ const Clock = () => {
 
   return (
     <>
-      <SpinningText fontSize={12}>{formattedTime}</SpinningText>
+      <SpinningText>{formattedTime}</SpinningText>
     </>
   );
 };
