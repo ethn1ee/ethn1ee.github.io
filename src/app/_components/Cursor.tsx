@@ -2,9 +2,10 @@
 "use client";
 
 import { motion, useMotionValue } from "motion/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Cursor = () => {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorCount = 20;
 
   const cursorSizes = Array.from(
@@ -12,41 +13,38 @@ const Cursor = () => {
     (_, i) => 30 - (30 / cursorCount) * i
   );
 
-  // Generate mouse array based on cursorSizes
   const mouse = cursorSizes.map(() => ({
     x: useMotionValue(-30),
     y: useMotionValue(-30),
   }));
 
-  // // Generate smoothOptions array based on cursorSizes
-  // const smoothOptions = cursorSizes.map((_, i) => ({
-  //   damping: 10000 - i,
-  //   stiffness: 100000 - i,
-  //   mass: 1,
-  // }));
+  useEffect(() => {
+    const handleTouchStart = () => setIsTouchDevice(true);
+    window.addEventListener("touchstart", handleTouchStart);
 
-  // // Generate smoothMouse array
-  // const smoothMouse = mouse.map((m, i) => ({
-  //   x: useSpring(m.x, smoothOptions[i]),
-  //   y: useSpring(m.y, smoothOptions[i]),
-  // }));
-
-  const handleMouseMove = (e: MouseEvent) => {
-    const { clientX, clientY } = e;
-    mouse.forEach(({ x, y }, index) => {
-      setTimeout(() => {
-        x.set(clientX - cursorSizes[index] / 2);
-        y.set(clientY - cursorSizes[index] / 2);
-      }, index * 10);
-    });
-  };
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+    };
+  }, []);
 
   useEffect(() => {
+    if (isTouchDevice) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      mouse.forEach(({ x, y }, index) => {
+        setTimeout(() => {
+          x.set(clientX - cursorSizes[index] / 2);
+          y.set(clientY - cursorSizes[index] / 2);
+        }, index * 10);
+      });
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  });
+  }, [cursorSizes, isTouchDevice, mouse]);
 
   return (
     <>
@@ -60,7 +58,9 @@ const Cursor = () => {
             height: cursorSize,
             borderRadius: cursorSize,
           }}
-          className={`fixed pointer-events-none opacity-[0.04] bg-white z-[5]`}
+          className={`fixed pointer-events-none opacity-[0.04] bg-white z-[5] ${
+            isTouchDevice ? "hidden" : ""
+          }`}
         />
       ))}
     </>
