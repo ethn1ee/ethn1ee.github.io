@@ -31,7 +31,7 @@ const Landing = () => {
         data-scroll-speed="0.5"
         className={
           ABCFavorit.mono.className +
-          " text-3xl sm:text-4xl font-bold leading-none relative z-10"
+          " text-2xl sm:text-4xl font-bold leading-none relative z-10"
         }
       >
         <div>
