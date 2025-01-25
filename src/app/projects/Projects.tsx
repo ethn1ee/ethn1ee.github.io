@@ -15,12 +15,13 @@ const data = projects as Project[];
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
+  const [scrollAmount, setScrollAmount] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
 
   useEffect(() => {
     const element = ref.current;
-    const scrollAmount = 200 * projects.length + 320 - window.innerWidth;
+    setScrollAmount(Math.max(200 * projects.length + 320 - window.innerWidth, 0));
 
     if (element) {
       gsap.to(element, {
@@ -42,6 +43,21 @@ const Projects = () => {
         },
       });
     }
+  }, [scrollAmount]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScrollAmount(
+        Math.max(200 * projects.length + 320 - window.innerWidth, 0)
+      );
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -50,7 +66,13 @@ const Projects = () => {
       <div className="h-8 w-full relative">
         {/* BORDER */}
         <motion.div
-          animate={{ width: isInView ? 200 * projects.length + 320 : 0 }}
+          animate={{
+            width: isInView
+              ? scrollAmount > 0
+                ? 200 * projects.length + 320
+                : "100vw"
+              : 0,
+          }}
           transition={{ ease: myEasing, duration: 1, delay: 0.5 }}
           className="absolute bottom-0 left-0 h-[1px] bg-gray-300"
         />
