@@ -119,7 +119,7 @@ const SocialLinks = () => {
         className="text-gray-200"
       >
         <Link
-          href={"https://www.linkedin.com/in/taehoon-lee-/"}
+          href={"https://www.linkedin.com/in/ethn1ee/"}
           target="_blank"
           rel="noreferrer"
         >
