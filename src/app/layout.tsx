@@ -3,9 +3,9 @@ import { ABCFavorit } from "./_components/Fonts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Taehoon's Portfolio",
+  title: "Taehoon Lee - Creative Developer",
   description:
-    "Hi there! I’m Taehoon Lee, a Computer Science student and aspiring software developer who loves creating cool and impactful digital experiences. From building AI-powered platforms to crafting interactive web designs, I’m all about turning creative ideas into reality. Check out my projects, explore my skills in Python, JavaScript, React, and more, and let’s connect to build something amazing together!",
+    "I am a Computer Science and Psychology student at Emory University with a passion for creating user-friendly, innovative software. I love working at the crossroads of technology and human behavior, combining my technical skills with insights into how people think and interact. From building AI-powered platforms at UrsaTech to enhancing e-commerce experiences at eStreamly, I’ve developed a knack for creating solutions that are both impactful and intuitive.",
   keywords: [
     "Creative Developer",
     "Portfolio",
@@ -25,20 +25,22 @@ export const metadata: Metadata = {
     "Taehoon Lee Portfolio",
     "Ethan's Portfolio",
     "Ethan Lee Portfolio",
+    "Developer",
+    "Software"
   ],
 
   openGraph: {
-    title: "Taehoon's Portfolio",
+    title: "Taehoon Lee - Creative Developer",
     description:
-      "Hi there! I’m Taehoon Lee, a Computer Science student and aspiring software developer who loves creating cool and impactful digital experiences. From building AI-powered platforms to crafting interactive web designs, I’m all about turning creative ideas into reality. Check out my projects, explore my skills in Python, JavaScript, React, and more, and let’s connect to build something amazing together!",
+      "I am a Computer Science and Psychology student at Emory University with a passion for creating user-friendly, innovative software. I love working at the crossroads of technology and human behavior, combining my technical skills with insights into how people think and interact. From building AI-powered platforms at UrsaTech to enhancing e-commerce experiences at eStreamly, I’ve developed a knack for creating solutions that are both impactful and intuitive.",
     url: "https://ethn1ee.github.io",
-    siteName: "Taehoon's Portfolio",
+    siteName: "Taehoon Lee - Creative Developer",
     images: [
       {
         url: "https://ethn1ee.github.io/taehoon.png",
         width: 800,
         height: 800,
-        alt: "Taehoon's Portfolio",
+        alt: "Taehoon Lee - Creative Developer",
       },
     ],
     locale: "en_US",
