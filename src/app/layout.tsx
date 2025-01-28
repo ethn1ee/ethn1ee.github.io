@@ -26,18 +26,19 @@ export const metadata: Metadata = {
     "Ethan's Portfolio",
     "Ethan Lee Portfolio",
     "Developer",
-    "Software"
+    "Software",
+    "Computer Science"
   ],
 
   openGraph: {
     title: "Taehoon Lee - Creative Developer",
     description:
       "I am a Computer Science and Psychology student at Emory University with a passion for creating user-friendly, innovative software. I love working at the crossroads of technology and human behavior, combining my technical skills with insights into how people think and interact. From building AI-powered platforms at UrsaTech to enhancing e-commerce experiences at eStreamly, I’ve developed a knack for creating solutions that are both impactful and intuitive.",
-    url: "https://ethn1ee.github.io",
+    url: "https://www.taehoonlee.dev/",
     siteName: "Taehoon Lee - Creative Developer",
     images: [
       {
-        url: "https://ethn1ee.github.io/taehoon.png",
+        url: "https://www.taehoonlee.dev/",
         width: 800,
         height: 800,
         alt: "Taehoon Lee - Creative Developer",
@@ -67,10 +68,10 @@ export default function RootLayout({
 
         <meta property="og:title" content={String(metadata.title) ?? ""} />
         <meta property="og:description" content={metadata.description ?? ""} />
-        <meta property="og:url" content="https://ethn1ee.github.io" />
+        <meta property="og:url" content={metadata.url ?? ""} />
         <meta
           property="og:image"
-          content="https://ethn1ee.github.io/taehoon.png"
+          content="https://www.taehoonlee.dev/taehoon.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@your_twitter_handle" />
@@ -78,7 +79,7 @@ export default function RootLayout({
         <meta name="twitter:description" content={metadata.description ?? ""} />
         <meta
           name="twitter:image"
-          content="https://ethn1ee.github.io/taehoon.png"
+          content="https://www.taehonlee.dev/taehoon.png"
         />
       </head>
       <body className={`${ABCFavorit.normal.className} antialiased`}>
