@@ -68,7 +68,7 @@ export default function RootLayout({
 
         <meta property="og:title" content={String(metadata.title) ?? ""} />
         <meta property="og:description" content={metadata.description ?? ""} />
-        <meta property="og:url" content={String(metadata.openGraph.url ?? "")} />
+        <meta property="og:url" content={metadata.openGraph?.url ? metadata.openGraph.url.toString() : ""} />
         <meta
           property="og:image"
           content="https://www.taehoonlee.dev/taehoon.png"
