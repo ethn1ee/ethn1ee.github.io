@@ -29,9 +29,7 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={ref}
-      // animate={{
-      //   width: isActive ? "100%" : 200,
-      // }}
+      whileHover={ isActive ? {} : { width: 210 }}
       animate={{ width: isActive ? "100vw" : 200 }}
       transition={{
         ease: myEasing,
