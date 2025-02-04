@@ -1,15 +1,15 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-
+import { myEasing } from "@/components/Easing";
 import { ABCFavorit } from "@/components/Fonts";
+import NoiseBG from "@/components/NoiseBG";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import NoiseBG from "@/components/NoiseBG";
-import Project from "./Project";
-import { myEasing } from "@/components/Easing";
 import { useRef } from "react";
+
+import Project from "./Project";
 
 interface ProjectCardProps {
   project: Project;

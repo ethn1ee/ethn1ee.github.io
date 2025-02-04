@@ -1,15 +1,16 @@
 "use client";
 
+import { myEasing } from "@/components/Easing";
 import { ABCFavorit } from "@/components/Fonts";
-import Clock from "./Clock";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import Link from "next/link";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import NoiseBG from "@/components/NoiseBG";
 import SpinningText from "@/components/SpinningText";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { motion } from "motion/react";
-import { myEasing } from "@/components/Easing";
+import Link from "next/link";
 import { useEffect } from "react";
+
+import Clock from "./Clock";
 
 const Landing = () => {
   useEffect(() => {}, []);

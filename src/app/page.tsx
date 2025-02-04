@@ -1,9 +1,10 @@
 "use client";
 
 import Cursor from "@/components/Cursor";
+import { useEffect } from "react";
+
 import Landing from "./landing/Landing";
 import Projects from "./projects/Projects";
-import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {

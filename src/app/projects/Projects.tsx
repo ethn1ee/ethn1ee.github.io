@@ -1,14 +1,14 @@
 "use client";
 
+import { myEasing } from "@/components/Easing";
+import projects from "@/data/projects.json";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import Project from "./Project";
 import ProjectCard from "./ProjectCard";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
-import { myEasing } from "@/components/Easing";
-import projects from "@/data/projects.json";
 
 gsap.registerPlugin(ScrollTrigger);
 

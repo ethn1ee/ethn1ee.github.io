@@ -1,8 +1,10 @@
 import "./globals.css";
 
-import { ABCFavorit } from "../components/Fonts";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
+
+import { ABCFavorit } from "../components/Fonts";
 
 export const metadata: Metadata = {
   title: "Taehoon Lee - Creative Developer",
@@ -92,6 +94,7 @@ export default function RootLayout({
       <body className={`${ABCFavorit.normal.className} antialiased`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
