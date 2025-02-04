@@ -9,7 +9,7 @@ import { ABCFavorit } from "../components/Fonts";
 export const metadata: Metadata = {
   title: "Taehoon Lee - Creative Developer",
   description:
-    "I am a Computer Science and Psychology student at Emory University with a passion for creating user-friendly, innovative software. I love working at the crossroads of technology and human behavior, combining my technical skills with insights into how people think and interact. From building AI-powered platforms at UrsaTech to enhancing e-commerce experiences at eStreamly, I’ve developed a knack for creating solutions that are both impactful and intuitive.",
+    "Computer Science and Psychology student at Emory University, passionate about building user-friendly, AI-powered, and innovative software. With experience at UrsaTech and eStreamly, I specialize in merging technology with human behavior to create intuitive, high-impact digital solutions. Explore my portfolio to see how I design cutting-edge software that enhances user experiences.",
   keywords: [
     "Creative Developer",
     "Portfolio",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Taehoon Lee - Creative Developer",
     description:
-      "Computer Science and Psychology student at Emory University with a passion for creating user-friendly, innovative software. I love working at the crossroads of technology and human behavior, combining my technical skills with insights into how people think and interact. From building AI-powered platforms at UrsaTech to enhancing e-commerce experiences at eStreamly, I’ve developed a knack for creating solutions that are both impactful and intuitive.",
+      "Computer Science and Psychology student at Emory University, passionate about building user-friendly, AI-powered, and innovative software. With experience at UrsaTech and eStreamly, I specialize in merging technology with human behavior to create intuitive, high-impact digital solutions. Explore my portfolio to see how I design cutting-edge software that enhances user experiences.",
     url: "https://taehoonlee.dev/",
     siteName: "Taehoon Lee - Creative Developer",
     images: [
