@@ -4,6 +4,7 @@ import { metadataObject } from "@/components/Metadata";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
+import Head from "next/head";
 
 import { ABCFavorit } from "../components/Fonts";
 
@@ -16,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="canonical" href="https://taehoonlee.dev/" key="canonical" />
+      </Head>
       <body className={`${ABCFavorit.normal.className} antialiased`}>
         {children}
         <Analytics />
