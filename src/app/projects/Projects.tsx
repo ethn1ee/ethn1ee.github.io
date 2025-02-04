@@ -1,13 +1,14 @@
 "use client";
 
+import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import ProjectCard from "./ProjectCard";
-import projects from "@/app/_data/projects.json";
+
 import Project from "./Project";
-import { useInView, motion } from "motion/react";
-import gsap from "gsap";
+import ProjectCard from "./ProjectCard";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { myEasing } from "../_components/Easing";
+import gsap from "gsap";
+import { myEasing } from "@/components/Easing";
+import projects from "@/data/projects.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,7 +78,10 @@ const Projects = () => {
       </div>
 
       {/* CAROUSEL */}
-      <div ref={carouselRef} className="flex w-fit h-[calc(100%-32px)] relative overflow-visible">
+      <div
+        ref={carouselRef}
+        className="flex w-fit h-[calc(100%-32px)] relative overflow-visible"
+      >
         {/* CARDS */}
         {data.map((project, index) => (
           <ProjectCard

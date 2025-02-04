@@ -1,5 +1,7 @@
 import "./globals.css";
-import { ABCFavorit } from "./_components/Fonts";
+
+import { ABCFavorit } from "../components/Fonts";
+import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     "Ethan Lee Portfolio",
     "Developer",
     "Software",
-    "Computer Science"
+    "Computer Science",
   ],
 
   openGraph: {
@@ -68,7 +70,12 @@ export default function RootLayout({
 
         <meta property="og:title" content={String(metadata.title) ?? ""} />
         <meta property="og:description" content={metadata.description ?? ""} />
-        <meta property="og:url" content={metadata.openGraph?.url ? metadata.openGraph.url.toString() : ""} />
+        <meta
+          property="og:url"
+          content={
+            metadata.openGraph?.url ? metadata.openGraph.url.toString() : ""
+          }
+        />
         <meta
           property="og:image"
           content="https://www.taehoonlee.dev/taehoon.png"
@@ -84,6 +91,7 @@ export default function RootLayout({
       </head>
       <body className={`${ABCFavorit.normal.className} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

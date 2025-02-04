@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "motion/react";
-import { ABCFavorit } from "../_components/Fonts";
-import NoiseBG from "../_components/NoiseBG";
-import SpinningText from "../_components/SpinningText";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import Link from "next/link";
+import { ABCFavorit } from "@/components/Fonts";
 import Clock from "./Clock";
-import { myEasing } from "../_components/Easing";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Link from "next/link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import NoiseBG from "@/components/NoiseBG";
+import SpinningText from "@/components/SpinningText";
+import { motion } from "motion/react";
+import { myEasing } from "@/components/Easing";
 import { useEffect } from "react";
 
 const Landing = () => {

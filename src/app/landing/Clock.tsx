@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import SpinningText from "../_components/SpinningText";
+
+import SpinningText from "@/components/SpinningText";
 
 const Clock = () => {
   const [time, setTime] = useState<Date>(new Date());

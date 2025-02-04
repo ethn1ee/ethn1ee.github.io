@@ -1,15 +1,15 @@
 "use client";
 
-import { ABCFavorit } from "../_components/Fonts";
 import { motion, useInView } from "motion/react";
-import Project from "./Project";
-import NoiseBG from "../_components/NoiseBG";
-import Image from "next/image";
-import { useRef } from "react";
-import { myEasing } from "../_components/Easing";
-import Link from "next/link";
 
+import { ABCFavorit } from "@/components/Fonts";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Image from "next/image";
+import Link from "next/link";
+import NoiseBG from "@/components/NoiseBG";
+import Project from "./Project";
+import { myEasing } from "@/components/Easing";
+import { useRef } from "react";
 
 interface ProjectCardProps {
   project: Project;
@@ -29,7 +29,7 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={ref}
-      whileHover={ isActive ? {} : { width: 210 }}
+      whileHover={isActive ? {} : { width: 210 }}
       animate={{ width: isActive ? "100vw" : 200 }}
       transition={{
         ease: myEasing,
@@ -143,12 +143,18 @@ const ProjectCard = ({
           className="w-full h-[300px] box-border px-10 flex flex-col gap-10 relative bottom-4 sm:bottom-10 left-0 z-10"
         >
           <div className="flex justify-between w-full gap-4">
-            <h3 className="text-base sm:text-lg font-bold text-gray-300">ABOUT</h3>
-            <p className="text-gray-100 text-xs w-3/5 shrink-0">{project.desc}</p>
+            <h3 className="text-base sm:text-lg font-bold text-gray-300">
+              ABOUT
+            </h3>
+            <p className="text-gray-100 text-xs w-3/5 shrink-0">
+              {project.desc}
+            </p>
           </div>
 
           <div className="flex justify-between w-full gap-4">
-            <h3 className="text-base sm:text-lg font-bold text-gray-300">MADE WITH</h3>
+            <h3 className="text-base sm:text-lg font-bold text-gray-300">
+              MADE WITH
+            </h3>
             <p className="text-gray-100 text-xs w-3/5 shrink-0">
               {project.tech.map((tech, index) => (
                 <span key={index}>
@@ -160,7 +166,9 @@ const ProjectCard = ({
           </div>
 
           <div className="flex justify-between w-full gap-4">
-            <h3 className="text-base sm:text-lg font-bold text-gray-300">VISIT</h3>
+            <h3 className="text-base sm:text-lg font-bold text-gray-300">
+              VISIT
+            </h3>
             <ul className="text-gray-100 text-xs w-3/5 shrink-0">
               {project.links.map((link, index) => (
                 <motion.li

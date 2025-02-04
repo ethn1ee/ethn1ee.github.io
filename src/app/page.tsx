@@ -1,6 +1,6 @@
 "use client";
 
-import Cursor from "./_components/Cursor";
+import Cursor from "@/components/Cursor";
 import Landing from "./landing/Landing";
 import Projects from "./projects/Projects";
 import { useEffect } from "react";

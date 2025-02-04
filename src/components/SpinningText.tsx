@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 import { motion } from "motion/react";
 import { myEasing } from "./Easing";
-import { useEffect, useRef, useState } from "react";
 
 interface SpinningTextProps {
   children: string;
