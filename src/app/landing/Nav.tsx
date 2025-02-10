@@ -2,15 +2,22 @@
 
 import { myEasing } from "@/components/Easing";
 import NoiseBG from "@/components/NoiseBG";
+import useLocomotiveScroll from "@/hooks/useLocomotiveScroll";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { Ref, useState } from "react";
 
 const Nav = () => {
   const [hovered, setHovered] = useState<number>(-1);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const scrollRef = useLocomotiveScroll();
+
+  const scrollToSection = (section: string) => {
+    scrollRef.current?.scrollTo(section);
+  };
 
   return (
     <nav
@@ -32,10 +39,15 @@ const Nav = () => {
           fontWeight: isHovered && hovered === 0 ? 700 : 400,
         }}
         onMouseEnter={() => setHovered(0)}
-        className="relative z-10 flex w-full cursor-pointer items-center justify-between py-2"
+        className="w-full"
       >
-        PROJECTS
-        <ArrowDownwardIcon />
+        <div
+          onClick={() => scrollToSection("#projects")}
+          className="relative z-10 flex w-full cursor-pointer items-center justify-between py-2"
+        >
+          PROJECTS
+          <ArrowDownwardIcon />
+        </div>
       </motion.div>
 
       <motion.div
