@@ -64,7 +64,7 @@ const Nav = () => {
           rel="noreferrer"
           className="relative z-10 flex w-full cursor-pointer items-center justify-between py-2"
         >
-          GITHUb
+          GITHUB
           <ArrowForwardIcon />
         </Link>
       </motion.div>

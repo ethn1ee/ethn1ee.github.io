@@ -1,95 +1,65 @@
 "use client";
 
 import { myEasing } from "@/components/Easing";
+import NoiseBG from "@/components/NoiseBG";
 import projects from "@/data/projects.json";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion, useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
+import { useState } from "react";
 
-import Project from "./Project";
+import Project from "../../types/Project";
 import ProjectCard from "./ProjectCard";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const data = projects as Project[];
 
 const Projects = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(-1);
-  const [borderLength, setBorderLength] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(carouselRef);
-
-  useEffect(() => {
-    const element = containerRef.current;
-    const scrollAmount = Math.max(
-      200 * projects.length + 320 - window.innerWidth,
-      0
-    );
-
-    if (element) {
-      gsap.to(element, {
-        x: -scrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: element,
-          start: "top top",
-          end: `+=${scrollAmount}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          // snap: {
-          //   snapTo: [0, 1],
-          //   duration: { min: 0.1, max: 0.3 },
-          //   delay: 0,
-          //   ease: "power2.inOut",
-          // },
-        },
-      });
-
-      const handleResize = () => {
-        const newBorderLength = Math.max(
-          200 * projects.length + 320,
-          window.innerWidth
-        );
-        setBorderLength(newBorderLength);
-      };
-
-      window.addEventListener("resize", handleResize);
-      handleResize();
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
-  }, []);
+  const [hovered, setHovered] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
-    <section ref={containerRef} id="projects" className="w-fit h-screen">
-      {/* DATE DISPLAY */}
-      <div className="h-8 w-full relative">
-        {/* BORDER */}
-        <motion.div
-          animate={{ width: isInView ? borderLength : 0 }}
-          transition={{ ease: myEasing, duration: 1, delay: 0.5 }}
-          className="absolute bottom-0 left-0 h-[1px] bg-gray-300"
-        />
-      </div>
+    <section id="projects" className="relative h-screen px-[20vw] pt-[20vh]">
+      <NoiseBG />
 
-      {/* CAROUSEL */}
       <div
-        ref={carouselRef}
-        className="flex w-fit h-[calc(100%-32px)] relative overflow-visible"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="flex flex-col"
       >
-        {/* CARDS */}
-        {data.map((project, index) => (
-          <ProjectCard
-            key={index}
-            project={project}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
+        {/* SELECTOR */}
+        <motion.div
+          animate={{ y: 120 * hovered, opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.5, ease: myEasing }}
+          className="pointer-events-none absolute left-0 h-[120px] w-screen"
+        >
+          <AnimatePresence>
+            <motion.div
+              key={hovered}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Image
+                src={data[hovered]?.images[0].src}
+                alt=""
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div
+            style={{
+              background:
+                "linear-gradient(90deg, var(--bg, #060606ff) 0%, #2E2E2Eaa 50%, var(--bg, #060606ff) 100%)",
+            }}
+            className="absolute left-0 top-0 size-full backdrop-blur-lg"
           />
+          <NoiseBG />
+        </motion.div>
+
+        {data.map((project, index) => (
+          <div key={index} onMouseEnter={() => setHovered(index)}>
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
     </section>

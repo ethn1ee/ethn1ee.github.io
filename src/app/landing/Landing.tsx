@@ -47,7 +47,6 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* NAV */}
       <Nav />
     </section>
   );
