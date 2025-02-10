@@ -1,17 +1,13 @@
 "use client";
 
-import { myEasing } from "@/components/Easing";
 import { ABCFavorit } from "@/components/Fonts";
 import InvisibleHeader from "@/components/InvisibleHeader";
 import NoiseBG from "@/components/NoiseBG";
 import SpinningText from "@/components/SpinningText";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { motion } from "motion/react";
-import Link from "next/link";
 import { useEffect } from "react";
 
 import Clock from "./Clock";
+import Nav from "./Nav";
 
 const Landing = () => {
   useEffect(() => {}, []);
@@ -19,33 +15,29 @@ const Landing = () => {
   return (
     <section
       id="landing"
-      className="flex items-center justify-center w-full h-screen"
+      className="to-background flex h-screen flex-col bg-gradient-to-b from-[#131313] px-[20vw] pt-[20vh]"
     >
+      <NoiseBG />
       <InvisibleHeader />
-      <SocialLinks />
 
-      <div className="opacity-40">
-        <NoiseBG />
-      </div>
-
+      {/* HEADER */}
       <div
-        data-scroll
-        data-scroll-speed="0.5"
-        className={
-          ABCFavorit.mono.className +
-          " text-2xl sm:text-4xl font-bold leading-none relative z-10"
-        }
+        // data-scroll
+        // data-scroll-speed="0.5"
+        className={ABCFavorit.mono.className + " flex w-full justify-between"}
       >
-        <div>
-          <SpinningText>TAEHOON LEE</SpinningText>
+        <div className="relative z-10 text-2xl font-bold leading-none sm:text-4xl">
+          <div>
+            <SpinningText>TAEHOON LEE</SpinningText>
+          </div>
+          <div className="text-gray-200">
+            <SpinningText>CREATIVE DEVELOPER</SpinningText>
+          </div>
+          <div className="text-gray-300">
+            <SpinningText>PORTFOLIO VOL.4</SpinningText>
+          </div>
         </div>
-        <div className="text-gray-200">
-          <SpinningText>CREATIVE DEVELOPER</SpinningText>
-        </div>
-        <div className="text-gray-300">
-          <SpinningText>PORTFOLIO VOL.4</SpinningText>
-        </div>
-        <div className="flex justify-between w-full text-gray-300">
+        <div className="flex w-fit flex-col text-right text-gray-300">
           <span className="text-xs font-normal">
             <SpinningText>ATLANTA, GA</SpinningText>
           </span>
@@ -54,43 +46,10 @@ const Landing = () => {
           </span>
         </div>
       </div>
+
+      {/* NAV */}
+      <Nav />
     </section>
-  );
-};
-
-const SocialLinks = () => {
-  return (
-    <nav className="absolute top-4 right-4 flex gap-4 z-10">
-      {/* GITHUB */}
-      <motion.div
-        whileHover={{ color: "#ffffff" }}
-        transition={{ duration: 0.3, ease: myEasing }}
-        className="text-gray-200"
-      >
-        <Link
-          href={"https://github.com/ethn1ee"}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GitHubIcon />
-        </Link>
-      </motion.div>
-
-      {/* LINKEDIN */}
-      <motion.div
-        whileHover={{ color: "#ffffff" }}
-        transition={{ duration: 0.3, ease: myEasing }}
-        className="text-gray-200"
-      >
-        <Link
-          href={"https://www.linkedin.com/in/ethn1ee/"}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <LinkedInIcon />
-        </Link>
-      </motion.div>
-    </nav>
   );
 };
 

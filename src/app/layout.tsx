@@ -20,7 +20,9 @@ export default function RootLayout({
       <Head>
         <link rel="canonical" href="https://taehoonlee.dev/" key="canonical" />
       </Head>
-      <body className={`${ABCFavorit.normal.className} antialiased`}>
+      <body
+        className={`${ABCFavorit.mono.className} bg-background text-gray-100 antialiased`}
+      >
         {children}
         <Analytics />
         <SpeedInsights />

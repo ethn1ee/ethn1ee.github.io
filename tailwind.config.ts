@@ -9,11 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#060606",
         "gray-100": "#D3D3D3",
         "gray-200": "#AAAAAA",
         "gray-300": "#7A7A7A",
+        "gray-400": "#2E2E2E",
+        "gray-500": "#141414",
       },
       backgroundImage: {
         noise: "url('/noise.webp')",
