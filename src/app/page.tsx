@@ -1,10 +1,10 @@
 "use client";
 
-import Cursor from "@/components/Cursor";
+import InvisibleHeader from "@/components/InvisibleHeader";
 import useLocomotiveScroll from "@/hooks/useLocomotiveScroll";
 
-import Landing from "./landing/Landing";
-import Projects from "./projects/Projects";
+import Landing from "./_sections/landing/Landing";
+import Projects from "./_sections/projects/Projects";
 
 export default function Home() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -12,8 +12,8 @@ export default function Home() {
 
   return (
     <>
-      <Cursor />
       <main className="w-screen overflow-hidden">
+        <InvisibleHeader />
         <Landing />
         <Projects />
       </main>
