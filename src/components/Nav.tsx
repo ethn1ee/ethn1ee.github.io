@@ -3,7 +3,6 @@
 import useLocomotiveScroll from "@/hooks/useLocomotiveScroll";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { Ref } from "react";
 
 import { fonts } from "./Fonts";
 import SpinningText from "./SpinningText";

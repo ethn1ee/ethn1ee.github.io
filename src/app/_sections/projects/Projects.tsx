@@ -2,7 +2,6 @@
 
 import projects from "@/data/projects.json";
 import Project from "@/types/Project";
-import { motion } from "motion/react";
 import { useState } from "react";
 
 import ProjectCard from "./ProjectCard";

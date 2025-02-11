@@ -3,10 +3,8 @@
 import { myEasing } from "@/components/Easing";
 import { fonts } from "@/components/Fonts";
 import Nav from "@/components/Nav";
-import SpinningText from "@/components/SpinningText";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { motion } from "motion/react";
-import Link from "next/link";
 
 import Clock from "./Clock";
 
