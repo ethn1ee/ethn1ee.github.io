@@ -11,7 +11,8 @@ const Nav = () => {
 
   return (
     <nav className="z-10 flex h-[60px] items-center justify-between border-b border-gray-300 pl-16 pr-10">
-      <div className="flex gap-3 leading-none tracking-tight text-gray-300">
+      {/* BREADCRUMB */}
+      <div className="flex gap-3 leading-none tracking-tight text-gray-300 pointer-events-none">
         <span>TAEHOON LEE</span>
         <span>/</span>
         {pathNames.map((path, index) => (
@@ -21,6 +22,8 @@ const Nav = () => {
           </Fragment>
         ))}
       </div>
+
+      {/* LINKS */}
       <ul
         className={
           fonts.mono.className +
