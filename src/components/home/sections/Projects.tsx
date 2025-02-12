@@ -1,7 +1,7 @@
 "use client";
 
 import projects from "@/data/projects.json";
-import type Project from "@/types/Project";
+import type Project from "@/types/project";
 import { useState } from "react";
 
 import ProjectCard from "../ProjectCard";

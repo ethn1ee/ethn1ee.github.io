@@ -1,14 +1,24 @@
-import type Project from "@/types/Project";
+import type { Project } from "@/types/project";
 import Nav from "../../../components/global/Nav";
 import ArticleHeader from "@/components/projects/ArticleHeader";
-import getProjectBySlug from "@/lib/projects/getPostBySlug";
+
+import sql from "../../../lib/db";
+import { markdownToHtml } from "../../../lib/markdown";
 
 interface ProjectProps {
   params: Promise<{ slug: string }>;
 }
 
 export default async function Project({ params }: ProjectProps) {
-  const project = await getProjectBySlug((await params).slug);
+  const { slug } = await params;
+  const [project]: Project[] =
+    await sql`SELECT * FROM projects WHERE slug = ${slug}`;
+
+  if (!project) {
+    return <div>Project not found</div>;
+  }
+
+  const contentHtml = await markdownToHtml(project.content);
 
   return (
     <div className="min-h-screen w-screen overflow-hidden">
@@ -16,16 +26,20 @@ export default async function Project({ params }: ProjectProps) {
       <main>
         <ArticleHeader
           title={project.title}
-          date={project.date}
+          date={`${project.startDate} - ${project.endDate}`}
           tags={project.tags}
         />
+        <article dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </main>
     </div>
   );
 }
 
 export const generateStaticParams = async () => {
-  const params = [{ slug: "emory-hacks" }];
+  const projects: Pick<Project, "slug">[] =
+    await sql`SELECT slug FROM projects`;
 
-  return params;
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 };

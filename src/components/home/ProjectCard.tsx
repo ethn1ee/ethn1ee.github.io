@@ -2,8 +2,8 @@
 
 import { myEasing } from "@/components/global/Easing";
 import { fonts } from "@/components/global/Fonts";
-import slugify from "@/lib/projects/slugify";
-import type Project from "@/types/Project";
+import slugify from "@/lib/slugify";
+import type { Project } from "@/types/project";
 import { motion } from "motion/react";
 import Link from "next/link";
 
@@ -76,7 +76,7 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
           className="flex w-full justify-between text-sm text-gray-300"
         >
           <span className="text-inherit">{project.tags[0].toUpperCase()}</span>
-          <span className="text-inherit">{project.date}</span>
+          <span className="text-inherit">{`${project.startDate} - ${project.endDate}`}</span>
         </motion.div>
         <motion.div
           variants={titleVariants}

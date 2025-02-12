@@ -1,12 +1,9 @@
-interface Project {
+export interface Project {
   id: number;
   title: string;
-  date: string;
+  slug: string;
+  startDate: string;
+  endDate: string;
   tags: string[];
-  desc: string;
-  tech: string[];
-  links: { name: string; href: string }[];
-  images: { src: string; alt: string; orientation: "landscape" | "portrait" }[];
+  content: string;
 }
-
-export default Project;
