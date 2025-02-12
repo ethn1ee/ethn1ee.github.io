@@ -2,7 +2,7 @@
   {
     "id": 0,
     "title": "Emory Hacks",
-    "time": "SEP 2024 - JAN 2025",
+    "date": "SEP 2024 - JAN 2025",
     "tags": ["Web Development", "UI/UX Design"],
     "desc": "Created Emory's inaugural hackathon website, featuring dynamic animations and space-themed graphics.",
     "tech": ["Next.js", "JavaScript", "Motion for React", "GSAP"],
@@ -29,7 +29,7 @@
   {
     "id": 1,
     "title": "eStreamly",
-    "time": "JUN 2024 - DEC 2024",
+    "date": "JUN 2024 - DEC 2024",
     "tags": ["Web Development", "UI/UX Design"],
     "desc": "Improved eStreamly's online shopping experience by revamping the video player, checkout flow, and product management interfaces.",
     "tech": ["AngularJS", "TypeScript", "C#"],
@@ -50,7 +50,7 @@
   {
     "id": 2,
     "title": "Spotify Warped",
-    "time": "JUN 2024 - DEC 2024",
+    "date": "JUN 2024 - DEC 2024",
     "tags": ["Data Science", "Personal Informatics"],
     "desc": "Submitted research to 3 prestigious conferences on the different information desires between casual users and 'Quantified Selfs' in terms of music streaming. Explored barriers for users to access and meaningfully engage with their personal data.",
     "tech": ["Python", "TypeScript", "Pandas", "SciPy"],
@@ -76,7 +76,7 @@
   {
     "id": 3,
     "title": "AAAI 2025",
-    "time": "SEP 2024 - NOV 2024",
+    "date": "SEP 2024 - NOV 2024",
     "tags": ["Web Development", "UI/UX Design"],
     "desc": "Developed the website for the 2025 AAAI Conference on Artificial Intelligence, focusing on user-friendly navigation and information accessibility.",
     "tech": ["Next.js", "JavaScript", "Motion for React", "GSAP"],

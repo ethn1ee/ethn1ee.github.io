@@ -1,9 +1,11 @@
 "use client";
 
-import { myEasing } from "@/components/Easing";
-import { fonts } from "@/components/Fonts";
-import Project from "@/types/Project";
+import { myEasing } from "@/components/global/Easing";
+import { fonts } from "@/components/global/Fonts";
+import slugify from "@/lib/projects/slugify";
+import type Project from "@/types/Project";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 interface ProjectCardProps {
   project: Project;
@@ -41,7 +43,10 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
   };
 
   return (
-    <div className="relative flex h-[120px] w-full cursor-pointer overflow-hidden pl-6 pr-10">
+    <Link
+      href={"/projects/" + slugify(project.title)}
+      className="relative flex h-[120px] w-full cursor-pointer overflow-hidden pl-6 pr-10"
+    >
       {/* BORDER */}
       <div className="absolute left-0 top-0 h-[1px] w-full bg-gray-300" />
 
@@ -71,7 +76,7 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
           className="flex w-full justify-between text-sm text-gray-300"
         >
           <span className="text-inherit">{project.tags[0].toUpperCase()}</span>
-          <span className="text-inherit">{project.time}</span>
+          <span className="text-inherit">{project.date}</span>
         </motion.div>
         <motion.div
           variants={titleVariants}
@@ -84,7 +89,7 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
           {project.title.toUpperCase()}
         </motion.div>
       </div>
-    </div>
+    </Link>
   );
 };
 

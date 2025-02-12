@@ -50,7 +50,7 @@ interface SpinningCharacterProps {
 
 const SpinningCharacter = ({ char, fontSize }: SpinningCharacterProps) => {
   const asciiString = String.fromCharCode(
-    ...Array.from({ length: 59 }, (_, i) => i + 32)
+    ...Array.from({ length: 59 }, (_, i) => i + 32),
   );
   const position = char.charCodeAt(0) - 32;
 
@@ -59,7 +59,7 @@ const SpinningCharacter = ({ char, fontSize }: SpinningCharacterProps) => {
       initial={{ y: 0 }}
       animate={{ y: -(fontSize + 4) * position }}
       transition={{ duration: 0.06 * position, ease: myEasing }}
-      className={`inline-flex flex-col gap-1 leading-none text-inherit w-fit h-fit overflow-hidden`}
+      className={`inline-flex h-fit w-fit flex-col gap-1 overflow-hidden leading-none text-inherit`}
     >
       {asciiString.split("").map((letter, index) => (
         <span key={index}>{letter === " " ? <>&nbsp;</> : letter}</span>

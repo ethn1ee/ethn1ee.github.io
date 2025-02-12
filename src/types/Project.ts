@@ -1,7 +1,7 @@
 interface Project {
   id: number;
   title: string;
-  time: string;
+  date: string;
   tags: string[];
   desc: string;
   tech: string[];

@@ -1,12 +1,12 @@
 "use client";
 
-import { myEasing } from "@/components/Easing";
-import { fonts } from "@/components/Fonts";
-import Nav from "@/components/Nav";
+import { myEasing } from "@/components/global/Easing";
+import { fonts } from "@/components/global/Fonts";
+import Nav from "@/components/home/LandingNav";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { motion } from "motion/react";
 
-import Clock from "./Clock";
+import Clock from "../Clock";
 
 const Landing = () => {
   return (

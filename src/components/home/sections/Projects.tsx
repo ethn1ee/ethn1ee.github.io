@@ -1,10 +1,10 @@
 "use client";
 
 import projects from "@/data/projects.json";
-import Project from "@/types/Project";
+import type Project from "@/types/Project";
 import { useState } from "react";
 
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../ProjectCard";
 
 const data = projects as Project[];
 
@@ -13,7 +13,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="h-screen w-screen">
-      <ul className="relative ml-10 pt-6 flex flex-col">
+      <ul className="relative ml-10 flex flex-col pt-6">
         {data.map((project: Project) => (
           <li
             onMouseEnter={() => setHovered(project.id)}

@@ -1,9 +1,9 @@
 import "./globals.css";
 
-import { fonts } from "@/components/Fonts";
-import { metadataObject } from "@/components/Metadata";
-import NoiseBG from "@/components/NoiseBG";
-import Sidebar from "@/components/Sidebar";
+import { fonts } from "@/components/global/Fonts";
+import NoiseBG from "@/components/global/NoiseBG";
+import Sidebar from "@/components/global/Sidebar";
+import { metadataObject } from "@/components/home/Metadata";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";

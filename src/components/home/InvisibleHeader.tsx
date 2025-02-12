@@ -2,7 +2,7 @@ import { metadataObject } from "./Metadata";
 
 const InvisibleHeader = () => {
   return (
-    <div className="absolute top-0 left-0 hidden">
+    <div className="absolute left-0 top-0 hidden">
       <h1>{metadataObject.title}</h1>
       <h2>{metadataObject.description}</h2>
       <p>

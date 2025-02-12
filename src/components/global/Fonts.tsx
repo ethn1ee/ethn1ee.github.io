@@ -2,7 +2,7 @@ import { Oswald, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 
 const ABCFavoritMono = localFont({
-  src: "../../public/fonts/ABCFavoritMonoVariable-Trial.woff2",
+  src: "../../../public/fonts/ABCFavoritMonoVariable-Trial.woff2",
 });
 
 const playfair = Playfair_Display({
