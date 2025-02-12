@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import { fonts } from "@/components/global/Fonts";
+import Nav from "@/components/global/Nav";
 import NoiseBG from "@/components/global/NoiseBG";
 import Sidebar from "@/components/global/Sidebar";
 import { metadataObject } from "@/components/home/Metadata";
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${fonts.mono.className} relative bg-black text-white antialiased`}
       >
         <NoiseBG />
+        <Nav />
         <Sidebar />
         {children}
         <Analytics />

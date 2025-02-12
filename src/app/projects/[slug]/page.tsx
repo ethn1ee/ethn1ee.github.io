@@ -1,9 +1,10 @@
 import type { Project } from "@/types/project";
-import Nav from "../../../components/global/Nav";
 import ArticleHeader from "@/components/projects/ArticleHeader";
 
-import sql from "../../../lib/db";
 import { markdownToHtml } from "../../../lib/markdown";
+import { formatDate } from "@/lib/formatDate";
+import { notFound } from "next/navigation";
+import { getAllSlugs, getProjectBySlug } from "@/lib/projects";
 
 interface ProjectProps {
   params: Promise<{ slug: string }>;
@@ -11,33 +12,28 @@ interface ProjectProps {
 
 export default async function Project({ params }: ProjectProps) {
   const { slug } = await params;
-  const [project]: Project[] =
-    await sql`SELECT * FROM projects WHERE slug = ${slug}`;
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
-    return <div>Project not found</div>;
+    notFound();
   }
 
   const contentHtml = await markdownToHtml(project.content);
 
   return (
-    <div className="min-h-screen w-screen overflow-hidden">
-      <Nav />
-      <main>
-        <ArticleHeader
-          title={project.title}
-          date={`${project.startDate} - ${project.endDate}`}
-          tags={project.tags}
-        />
-        <article dangerouslySetInnerHTML={{ __html: contentHtml }} />
-      </main>
-    </div>
+    <main className="min-h-screen w-screen overflow-hidden pt-[60px]">
+      <ArticleHeader
+        title={project.title}
+        date={formatDate(project.start_date, project.end_date)}
+        tags={project.tags}
+      />
+      <article dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </main>
   );
 }
 
 export const generateStaticParams = async () => {
-  const projects: Pick<Project, "slug">[] =
-    await sql`SELECT slug FROM projects`;
+  const projects = await getAllSlugs();
 
   return projects.map((project) => ({
     slug: project.slug,

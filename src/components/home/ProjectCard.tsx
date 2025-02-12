@@ -2,21 +2,25 @@
 
 import { myEasing } from "@/components/global/Easing";
 import { fonts } from "@/components/global/Fonts";
+import { formatDate } from "@/lib/formatDate";
 import slugify from "@/lib/slugify";
 import type { Project } from "@/types/project";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useState } from "react";
 
 interface ProjectCardProps {
   project: Project;
-  isHovered: boolean;
+  index: number;
 }
 
-const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
   const numberVariants = {
     hovered: {
       color: "#060606",
-      y: 0,
+      y: -2,
     },
     unhovered: {
       color: "#AAAAAA",
@@ -42,9 +46,13 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
     },
   };
 
+  const formattedDate = formatDate(project.start_date, project.end_date);
+
   return (
     <Link
       href={"/projects/" + slugify(project.title)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className="relative flex h-[120px] w-full cursor-pointer overflow-hidden pl-6 pr-10"
     >
       {/* BORDER */}
@@ -57,6 +65,7 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
         className="absolute bottom-0 left-0 -z-10 w-full bg-white"
       />
 
+      {/* NUMBER */}
       <div className="h-full w-[180px] text-[130px] font-black leading-none tracking-tight">
         <motion.span
           variants={numberVariants}
@@ -64,7 +73,7 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
           transition={{ duration: 0.3, ease: myEasing }}
           className="relative block"
         >
-          {String(project.id + 1).padStart(2, "0")}
+          {String(index + 1).padStart(2, "0")}
         </motion.span>
       </div>
 
@@ -76,7 +85,7 @@ const ProjectCard = ({ project, isHovered }: ProjectCardProps) => {
           className="flex w-full justify-between text-sm text-gray-300"
         >
           <span className="text-inherit">{project.tags[0].toUpperCase()}</span>
-          <span className="text-inherit">{`${project.startDate} - ${project.endDate}`}</span>
+          <span className="text-inherit">{formattedDate}</span>
         </motion.div>
         <motion.div
           variants={titleVariants}

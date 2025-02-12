@@ -2,19 +2,19 @@ import { fonts } from "../global/Fonts";
 
 interface ArticleHeaderProps {
   title: string;
-  date: string;
-  tags: string[];
+  date?: string;
+  tags?: string[];
 }
 
 const ArticleHeader = ({ title, date, tags }: ArticleHeaderProps) => {
   return (
-    <div className="ml-10 w-full border-b border-gray-300 px-[25%] py-16">
+    <div className="w-full border-b border-gray-300 px-[25%] py-16">
       <h1 className={fonts.oswald.className + " mb-6 text-5xl font-bold leading-none"}>
         {title.toUpperCase()}
       </h1>
 
-      <DetailRow name="DATE" content={date} />
-      <DetailRow name="TAGS" content={tags.join(", ").toUpperCase()} />
+      {date && <DetailRow name="DATE" content={date} />}
+      {tags && <DetailRow name="TAGS" content={tags.join(", ").toUpperCase()} />}
 
     </div>
   );
