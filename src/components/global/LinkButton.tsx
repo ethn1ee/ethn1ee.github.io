@@ -40,14 +40,16 @@ const LinkButton = ({ href, children }: LinkButtonProps) => {
         <Link href={href} target="_blank" rel="noreferrer">
           <SpinningText>{children}</SpinningText>
         </Link>
+      ) : isInternal ? (
+        <Link href={href}>
+          <SpinningText>{children}</SpinningText>
+        </Link>
       ) : isSection ? (
         <span onClick={scrollToSection}>
           <SpinningText>{children}</SpinningText>
         </span>
       ) : (
-        <Link href={href}>
-          <SpinningText>{children}</SpinningText>
-        </Link>
+        <SpinningText>{children}</SpinningText>
       )}
 
       <motion.div
