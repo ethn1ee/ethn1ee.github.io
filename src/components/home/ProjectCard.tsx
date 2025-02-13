@@ -52,7 +52,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       href={"/projects/" + slugify(project.title)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex h-[120px] w-full cursor-pointer gap-2 overflow-hidden pl-6 pr-10"
+      className="relative flex h-[120px] w-full cursor-pointer gap-6 sm:gap-10 overflow-hidden pl-6 pr-10"
     >
       {/* BORDER */}
       <div className="absolute left-0 top-0 h-[1px] w-full bg-gray-300" />
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       />
 
       {/* NUMBER */}
-      <div className="h-full w-[180px] text-[130px] font-black leading-none tracking-tight">
+      <div className="h-full w-fit text-[130px] font-black leading-none tracking-tight shrink-0">
         <motion.span
           variants={numberVariants}
           animate={isHovered ? "hovered" : "unhovered"}

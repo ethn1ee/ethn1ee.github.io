@@ -14,13 +14,13 @@ const Landing = () => {
       className="relative flex h-screen w-screen flex-col pb-4"
     >
       {/* HEADER */}
-      <header className="relative flex items-center gap-4 border-b border-gray-300 px-4 pb-6 pt-4 leading-none tracking-tighter sm:pl-16 sm:pr-10">
+      <header className="relative flex items-center gap-4 border-b border-gray-300 px-4 pb-2 pt-0 leading-none tracking-tighter sm:pb-6 sm:pl-16 sm:pr-10 sm:pt-4">
         <span className="font-oswald text-[10vw] font-bold">TAEHOON</span>
         <motion.div
           initial={{ flexGrow: 0 }}
           animate={{ flexGrow: 1 }}
           transition={{ duration: 1, ease: myEasing }}
-          className="mt-4 flex justify-center border-b border-t border-gray-400 p-2"
+          className="mt-2 sm:mt-4 flex justify-center border-b border-t border-gray-400 p-2"
         >
           <span
             className={
@@ -43,7 +43,7 @@ const Landing = () => {
       <Nav />
 
       {/* SUBHEADING */}
-      <div className="mx-4 text-gray-300 sm:ml-16 mr-12">
+      <div className="mx-4 mr-12 text-gray-300 sm:ml-16">
         BUILDING WITH CURIOSITY & ORIGINALITY
       </div>
 
