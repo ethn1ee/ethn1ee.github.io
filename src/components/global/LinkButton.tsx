@@ -11,9 +11,10 @@ import SpinningText from "./SpinningText";
 interface LinkButtonProps {
   href: string;
   children: string;
+  animate?: boolean;
 }
 
-const LinkButton = ({ href, children }: LinkButtonProps) => {
+const LinkButton = ({ href, children, animate = true }: LinkButtonProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const isExternal = href.startsWith("http");
@@ -38,18 +39,20 @@ const LinkButton = ({ href, children }: LinkButtonProps) => {
     >
       {isExternal ? (
         <Link href={href} target="_blank" rel="noreferrer">
-          <SpinningText>{children}</SpinningText>
+          {animate ? <SpinningText>{children}</SpinningText> : children}
         </Link>
       ) : isInternal ? (
         <Link href={href}>
-          <SpinningText>{children}</SpinningText>
+          {animate ? <SpinningText>{children}</SpinningText> : children}
         </Link>
       ) : isSection ? (
         <span onClick={scrollToSection}>
-          <SpinningText>{children}</SpinningText>
+          {animate ? <SpinningText>{children}</SpinningText> : children}
         </span>
-      ) : (
+      ) : animate ? (
         <SpinningText>{children}</SpinningText>
+      ) : (
+        children
       )}
 
       <motion.div

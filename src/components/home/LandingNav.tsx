@@ -1,23 +1,20 @@
 "use client";
 
-import { fonts } from "../global/Fonts";
 import LinkButton from "../global/LinkButton";
 
 const Nav = () => {
   return (
-    <nav className="z-10 mb-2 ml-16 mr-10 flex justify-between">
+    <nav className="z-10 mx-4 mb-2 flex h-full flex-col-reverse justify-between gap-6 pt-6 sm:ml-16 sm:mr-10 sm:h-fit sm:flex-row">
       <p
         className={
-          fonts.playfair.className +
-          " text-3xl font-bold italic leading-none text-gray-200"
+          "font-playfair text-3xl font-bold italic leading-none text-gray-200"
         }
       >
         Creative Developer
       </p>
       <ul
         className={
-          fonts.mono.className +
-          " flex gap-10 leading-none tracking-tight text-gray-200"
+          "flex justify-between gap-10 font-mono leading-none tracking-tight text-gray-200 sm:justify-end"
         }
       >
         <li>

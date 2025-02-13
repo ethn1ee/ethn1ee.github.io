@@ -6,6 +6,9 @@ import { formatDate } from "@/lib/formatDate";
 import { notFound } from "next/navigation";
 import { getAllSlugs, getProjectBySlug } from "@/lib/projects";
 
+import "./article.scss";
+import ArticleContent from "@/components/projects/ArticleContent";
+
 interface ProjectProps {
   params: Promise<{ slug: string }>;
 }
@@ -27,7 +30,7 @@ export default async function Project({ params }: ProjectProps) {
         date={formatDate(project.start_date, project.end_date)}
         tags={project.tags}
       />
-      <article dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      <ArticleContent contentHtml={contentHtml} />
     </main>
   );
 }

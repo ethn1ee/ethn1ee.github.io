@@ -7,7 +7,7 @@ const Projects = async () => {
 
   return (
     <section id="projects" className="h-screen w-screen">
-      <ul className="relative ml-10 flex flex-col pt-6">
+      <ul className="relative ml-0 sm:ml-10 flex flex-col pt-6">
         {projects.map((project, index) => (
           <li key={index}>
             <ProjectCard project={project} index={index} />

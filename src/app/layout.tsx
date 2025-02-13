@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { fonts } from "@/components/global/Fonts";
+import { fontVariables } from "@/components/global/Fonts";
 import Nav from "@/components/global/Nav";
 import NoiseBG from "@/components/global/NoiseBG";
 import Sidebar from "@/components/global/Sidebar";
@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://taehoonlee.dev/" key="canonical" />
       </Head>
       <body
-        className={`${fonts.mono.className} relative bg-black text-white antialiased`}
+        className={`${fontVariables} relative bg-black font-mono text-white antialiased`}
       >
         <NoiseBG />
         <Nav />

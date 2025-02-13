@@ -1,7 +1,6 @@
 "use client";
 
 import { myEasing } from "@/components/global/Easing";
-import { fonts } from "@/components/global/Fonts";
 import { formatDate } from "@/lib/formatDate";
 import slugify from "@/lib/slugify";
 import type { Project } from "@/types/project";
@@ -53,7 +52,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       href={"/projects/" + slugify(project.title)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex h-[120px] w-full cursor-pointer overflow-hidden pl-6 pr-10"
+      className="relative flex h-[120px] gap-2 w-full cursor-pointer overflow-hidden pl-6 pr-10"
     >
       {/* BORDER */}
       <div className="absolute left-0 top-0 h-[1px] w-full bg-gray-300" />
@@ -78,22 +77,23 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       </div>
 
       <div className="flex flex-grow flex-col justify-center gap-2 leading-none">
+        {/* DETAILS */}
         <motion.div
           variants={subtitleVariants}
           animate={isHovered ? "hovered" : "unhovered"}
           transition={{ duration: 0.5, ease: myEasing }}
-          className="flex w-full justify-between text-sm text-gray-300"
+          className="hidden w-full justify-between text-sm text-gray-300 sm:flex"
         >
           <span className="text-inherit">{project.tags[0].toUpperCase()}</span>
           <span className="text-inherit">{formattedDate}</span>
         </motion.div>
+
+        {/* TITLE */}
         <motion.div
           variants={titleVariants}
           animate={isHovered ? "hovered" : "unhovered"}
           transition={{ duration: 0.5, ease: myEasing }}
-          className={
-            fonts.oswald.className + " text-3xl font-bold tracking-tight"
-          }
+          className="font-oswald text-3xl font-bold tracking-tight"
         >
           {project.title.toUpperCase()}
         </motion.div>
