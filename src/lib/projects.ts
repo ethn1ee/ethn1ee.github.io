@@ -23,8 +23,16 @@ export async function getProjectBySlug(slug: string): Promise<Project> {
   return result[0] as Project;
 }
 
-export async function postProject(project: Project): Promise<void> {
+export async function createProject(project: Project): Promise<void> {
   await sql`
     INSERT INTO projects ${sql(project, "title", "slug", "start_date", "end_date", "tags", "content")}
+  `;
+}
+
+export async function updateProject(project: Project): Promise<void> {
+  await sql`
+    UPDATE projects
+    SET ${sql(project, "title", "slug", "start_date", "end_date", "tags", "content")}
+    WHERE slug = ${project.slug}
   `;
 }

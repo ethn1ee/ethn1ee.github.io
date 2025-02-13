@@ -7,13 +7,37 @@ h2 {
   font-size: 1.5rem;
   margin: 40 0 20 0;
   text-transform: uppercase;
+  border-bottom: 1px solid #2E2E2E;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 20px 0 8px 0;
+  // text-transform: uppercase;
 }
 
 p {
-  margin: 12px 0px;
+  margin: 8px 0px;
 }
 
 img {
   width: 25vw;
   border-radius: 8px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  margin: 20px 0;
+
+  img,
+  video {
+    height: auto;
+    max-height: 400px;
+    border-radius: 8px;
+  }
 }

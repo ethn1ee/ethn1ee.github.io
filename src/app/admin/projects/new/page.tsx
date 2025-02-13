@@ -1,7 +1,7 @@
 "use client";
 
 import ArticleHeader from "@/components/projects/ArticleHeader";
-import { postProject } from "@/lib/projects";
+import { createProject, getAllSlugs, updateProject } from "@/lib/projects";
 import slugify from "@/lib/slugify";
 import { Project } from "@/types/project";
 import { motion } from "motion/react";
@@ -37,16 +37,33 @@ export default function NewProject() {
       tags: tagsArray,
     } satisfies Project;
 
-    postProject(newProject).then(() => {
-      setForm({
-        title: "",
-        start_date: "",
-        end_date: "",
-        tags: "",
-        content: "",
+    const allSlugs = (await getAllSlugs()).map(
+      (project: Pick<Project, "slug">) => project.slug,
+    );
+
+    if (allSlugs.includes(newProject.slug)) {
+      updateProject(newProject).then(() => {
+        setForm({
+          title: "",
+          start_date: "",
+          end_date: "",
+          tags: "",
+          content: "",
+        });
+        alert("Project updated successfully!");
       });
-      alert("Project created successfully!");
-    });
+    } else {
+      createProject(newProject).then(() => {
+        setForm({
+          title: "",
+          start_date: "",
+          end_date: "",
+          tags: "",
+          content: "",
+        });
+        alert("Project created successfully!");
+      });
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +84,7 @@ export default function NewProject() {
   return (
     <div className="min-h-screen pt-[60px]">
       <main>
-        <ArticleHeader title="Create New Project" />
+        <ArticleHeader title="Create / Update Project" />
 
         <form onSubmit={handleSubmit} className="px-[25vw] pt-10">
           <Input
