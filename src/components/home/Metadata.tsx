@@ -9,6 +9,11 @@ export const metadataObject = {
     "Portfolio",
     "Web Development",
     "UI/UX Design",
+    "Software Engineering",
+    "AI",
+    "Machine Learning",
+    "Computer Science",
+    "Data Science",
     "Taehoon",
     "Taehoon Lee",
     "Ethan",
@@ -46,7 +51,7 @@ export const metadataObject = {
     siteName: "Taehoon Lee - Creative Developer",
     images: [
       {
-        url: "https://taehoonlee.dev/taehoon.png",
+        url: "https://taehoonlee.dev/thumbnail.png",
         width: 800,
         height: 800,
         alt: "Taehoon Lee",
