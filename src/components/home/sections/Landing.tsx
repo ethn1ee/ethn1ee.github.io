@@ -34,7 +34,7 @@ const Landing = () => {
       </header>
 
       {/* CLOCK */}
-      <div className="absolute left-3 top-[calc(151px+15vw)] hidden h-4 w-fit origin-top-left -rotate-90 font-mono text-xs text-gray-300 sm:block">
+      <div className="absolute left-3 top-[calc(155px+10vw+24px+40px)] hidden h-4 w-fit origin-top-left -rotate-90 font-mono text-xs text-gray-300 sm:block">
         <span className="leading-none">ATLANTA, GA &nbsp;</span>
         <Clock />
       </div>
