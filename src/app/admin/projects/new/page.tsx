@@ -10,7 +10,7 @@ import { FormEvent, useState } from "react";
 type FormData = {
   title: string;
   start_date: string;
-  end_date: string;
+  end_date: string | null;
   tags: string;
   content: string;
 };
@@ -19,7 +19,7 @@ export default function NewProject() {
   const [form, setForm] = useState<FormData>({
     title: "",
     start_date: "",
-    end_date: "",
+    end_date: null,
     tags: "",
     content: "",
   });
@@ -32,7 +32,7 @@ export default function NewProject() {
     const newProject = {
       ...form,
       start_date: new Date(form.start_date),
-      end_date: new Date(form.end_date),
+      end_date: form.end_date ? new Date(form.end_date) : null,
       slug: slugify(form.title),
       tags: tagsArray,
     } satisfies Project;
@@ -46,7 +46,7 @@ export default function NewProject() {
         setForm({
           title: "",
           start_date: "",
-          end_date: "",
+          end_date: null,
           tags: "",
           content: "",
         });
@@ -57,7 +57,7 @@ export default function NewProject() {
         setForm({
           title: "",
           start_date: "",
-          end_date: "",
+          end_date: null,
           tags: "",
           content: "",
         });
@@ -134,7 +134,7 @@ export default function NewProject() {
 interface InputProps {
   type: string;
   placeholder: string;
-  value?: string;
+  value?: string | null;
   accept?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -148,7 +148,7 @@ const Input = ({ type, placeholder, value, onChange }: InputProps) => {
       <input
         type={type}
         placeholder={placeholder}
-        value={value}
+        value={value ?? ""}
         onChange={onChange}
         className="mb-4 w-full rounded border border-gray-300 bg-transparent p-2"
       />

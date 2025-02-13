@@ -7,7 +7,9 @@ import sql from "./db";
 export async function getAllProjects(): Promise<Project[]> {
   return await sql`
     SELECT * FROM projects
-    ORDER BY "start_date" DESC
+    ORDER BY 
+      end_date DESC,
+      start_date DESC
   `;
 }
 
