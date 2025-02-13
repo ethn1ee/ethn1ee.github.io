@@ -52,7 +52,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       href={"/projects/" + slugify(project.title)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex h-[120px] gap-2 w-full cursor-pointer overflow-hidden pl-6 pr-10"
+      className="relative flex h-[120px] w-full cursor-pointer gap-2 overflow-hidden pl-6 pr-10"
     >
       {/* BORDER */}
       <div className="absolute left-0 top-0 h-[1px] w-full bg-gray-300" />
