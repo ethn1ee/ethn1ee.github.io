@@ -3,7 +3,7 @@
 import ArticleHeader from "@/components/projects/ArticleHeader";
 import { createProject, getAllSlugs, updateProject } from "@/lib/projects";
 import slugify from "@/lib/slugify";
-import { Project } from "@/types/project";
+import type { Project } from "@/types/project";
 import { motion } from "motion/react";
 import { FormEvent, useState } from "react";
 
