@@ -7,7 +7,7 @@ interface ArticleHeaderProps {
 const ArticleHeader = ({ title, date, tags }: ArticleHeaderProps) => {
   return (
     <div className="flex w-full justify-center border-b border-gray-300 px-4 py-16">
-      <div className="w-1/2 max-w-5xl">
+      <div className="w-full sm:w-1/2 max-w-5xl">
         <h1 className="font-oswald mb-6 text-5xl font-bold leading-none">
           {title.toUpperCase()}
         </h1>
