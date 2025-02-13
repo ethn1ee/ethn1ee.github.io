@@ -3,14 +3,16 @@ interface ArticleContentProps {
 }
 
 const ArticleContent = ({ contentHtml }: ArticleContentProps) => {
-  return contentHtml.length > 0 ? (
-    <article
-      className="w-full px-4 py-16 sm:px-[25%]"
-      dangerouslySetInnerHTML={{ __html: contentHtml }}
-    />
-  ) : (
-    <div className="flex h-full w-full items-center justify-center px-4 py-16 sm:px-[25%]">
-      <p className="text-center text-xl font-bold text-gray-300">COMING SOON!</p>
+  return (
+    <div className="flex justify-center px-4 py-16">
+      {contentHtml.length > 0 ? (
+        <article
+          className="w-1/2 max-w-5xl"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+      ) : (
+        <em className="text-xl font-bold text-gray-300">COMING SOON!</em>
+      )}
     </div>
   );
 };
