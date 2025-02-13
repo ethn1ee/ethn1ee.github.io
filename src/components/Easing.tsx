@@ -1,1 +1,0 @@
-export const myEasing = [0.23, 0.83, 0.34, 1];

@@ -1,12 +1,14 @@
 import "./globals.css";
 
-import { metadataObject } from "@/components/Metadata";
+import { fontVariables } from "@/components/global/Fonts";
+import Nav from "@/components/global/Nav";
+import NoiseBG from "@/components/global/NoiseBG";
+import Sidebar from "@/components/global/Sidebar";
+import { metadataObject } from "@/components/home/Metadata";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import Head from "next/head";
-
-import { ABCFavorit } from "../components/Fonts";
 
 export const metadata: Metadata = metadataObject;
 
@@ -20,7 +22,12 @@ export default function RootLayout({
       <Head>
         <link rel="canonical" href="https://taehoonlee.dev/" key="canonical" />
       </Head>
-      <body className={`${ABCFavorit.normal.className} antialiased`}>
+      <body
+        className={`${fontVariables} relative bg-black font-mono text-white antialiased`}
+      >
+        <NoiseBG />
+        <Nav />
+        <Sidebar />
         {children}
         <Analytics />
         <SpeedInsights />
