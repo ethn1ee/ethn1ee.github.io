@@ -21,6 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="canonical" href="https://taehoonlee.dev/" key="canonical" />
+        <link rel="icon" sizes="192x192" href="/logo.png" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/logo.png" />
       </Head>
       <body
         className={`${fontVariables} relative bg-black font-mono text-white antialiased`}
