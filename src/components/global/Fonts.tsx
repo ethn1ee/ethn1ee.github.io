@@ -1,4 +1,4 @@
-import { Crimson_Text, Oswald, Playfair_Display } from "next/font/google";
+import { Newsreader, Oswald, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 
 const ABCFavoritMono = localFont({
@@ -18,10 +18,9 @@ const oswald = Oswald({
   variable: "--font-oswald",
 });
 
-const crimson = Crimson_Text({
+const newsreader = Newsreader({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: ["400", "700"],
   variable: "--font-crimson",
 });
 
@@ -29,7 +28,7 @@ export const fonts = {
   mono: ABCFavoritMono,
   oswald: oswald,
   playfair: playfair,
-  crimson: crimson,
+  crimson: newsreader,
 };
 
 export const fontVariables = Object.entries(fonts)

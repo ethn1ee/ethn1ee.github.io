@@ -19,11 +19,21 @@ h3 {
 
 p {
   margin: 8px 0px;
+  color: #e3e3e3;
 }
 
 img {
   width: 25vw;
   border-radius: 8px;
+}
+
+a {
+  text-decoration: underline;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #7a7a7a;
+  }
 }
 
 .media-grid {
