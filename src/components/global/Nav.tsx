@@ -1,8 +1,10 @@
 "use client";
 
+import logo from "@/../public/logo.svg";
 import LinkButton from "@/components/global/LinkButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Fragment, useState } from "react";
 
@@ -32,8 +34,14 @@ const Nav = () => {
           <NoiseBG />
 
           {/* BREADCRUMB */}
-          <div className="pointer-events-none hidden gap-3 leading-none tracking-tight text-gray-300 md:flex">
-            <span>TAEHOON LEE</span>
+          <div className="pointer-events-none hidden items-center gap-3 leading-none tracking-tight text-gray-300 md:flex">
+            <Image
+              src={logo}
+              alt="logo"
+              width={16}
+              height={16}
+              className="text-gray-300 opacity-40"
+            />
             <span>/</span>
             {pathNames.map((path, index) => (
               <Fragment key={index}>
