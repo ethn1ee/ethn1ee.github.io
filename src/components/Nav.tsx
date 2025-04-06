@@ -16,55 +16,51 @@ const Nav = () => {
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
 
-  const isLanding = pathNames.length === 0;
-
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
     <AnimatePresence>
-      {!isLanding && (
-        <motion.nav
-          initial={{ top: -60 }}
-          animate={{
-            top: 0,
-          }}
-          exit={{ top: -60 }}
-          transition={{ duration: 0.8, ease: myEasing }}
-          className="fixed left-0 z-50 flex h-[60px] w-screen items-center justify-between border-b border-gray-300 bg-black p-4 sm:pl-16 sm:pr-10"
+      <motion.nav
+        initial={{ top: -60 }}
+        animate={{
+          top: 0,
+        }}
+        exit={{ top: -60 }}
+        transition={{ duration: 0.8, ease: myEasing }}
+        className="fixed left-0 z-50 flex h-[60px] w-screen items-center justify-between border-b border-gray-300 bg-black p-4 sm:pl-16 sm:pr-10"
+      >
+        <NoiseBG />
+
+        {/* BREADCRUMB */}
+        <div className="pointer-events-none hidden items-center gap-3 leading-none tracking-tight text-gray-300 md:flex">
+          <Image
+            src={logo}
+            alt="logo"
+            width={16}
+            height={16}
+            className="text-gray-300 opacity-40"
+          />
+          <span>/</span>
+          {pathNames.map((path, index) => (
+            <Fragment key={index}>
+              <span>{path.toUpperCase()}</span>
+              {index !== pathNames.length - 1 && <span>/</span>}
+            </Fragment>
+          ))}
+        </div>
+
+        {/* LINKS */}
+        <div className="ml-auto hidden md:block">
+          <HorizontalLinks />
+        </div>
+        <div
+          onClick={() => setExpanded(!expanded)}
+          className="ml-auto block md:hidden"
         >
-          <NoiseBG />
-
-          {/* BREADCRUMB */}
-          <div className="pointer-events-none hidden items-center gap-3 leading-none tracking-tight text-gray-300 md:flex">
-            <Image
-              src={logo}
-              alt="logo"
-              width={16}
-              height={16}
-              className="text-gray-300 opacity-40"
-            />
-            <span>/</span>
-            {pathNames.map((path, index) => (
-              <Fragment key={index}>
-                <span>{path.toUpperCase()}</span>
-                {index !== pathNames.length - 1 && <span>/</span>}
-              </Fragment>
-            ))}
-          </div>
-
-          {/* LINKS */}
-          <div className="ml-auto hidden md:block">
-            <HorizontalLinks />
-          </div>
-          <div
-            onClick={() => setExpanded(!expanded)}
-            className="ml-auto block md:hidden"
-          >
-            <MenuIcon className="cursor-pointer" />
-            <AnimatePresence>{expanded && <VerticalLinks />}</AnimatePresence>
-          </div>
-        </motion.nav>
-      )}
+          <MenuIcon className="cursor-pointer" />
+          <AnimatePresence>{expanded && <VerticalLinks />}</AnimatePresence>
+        </div>
+      </motion.nav>
     </AnimatePresence>
   );
 };
