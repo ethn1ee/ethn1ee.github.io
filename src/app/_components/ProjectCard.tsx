@@ -1,6 +1,6 @@
 "use client";
 
-import { myEasing } from "@/components/global/Easing";
+import { myEasing } from "@/components/Easing";
 import { formatDate } from "@/lib/formatDate";
 import slugify from "@/lib/slugify";
 import type { Project } from "@/types/project";
@@ -52,7 +52,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       href={"/projects/" + slugify(project.title)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex h-[120px] w-full cursor-pointer gap-6 sm:gap-10 overflow-hidden pl-6 pr-10"
+      className="relative flex h-[120px] w-full cursor-pointer gap-6 overflow-hidden pl-6 pr-10 sm:gap-10"
     >
       {/* BORDER */}
       <div className="absolute left-0 top-0 h-[1px] w-full bg-gray-300" />
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       />
 
       {/* NUMBER */}
-      <div className="h-full w-fit text-[130px] font-black leading-none tracking-tight shrink-0">
+      <div className="h-full w-fit shrink-0 text-[130px] font-black leading-none tracking-tight">
         <motion.span
           variants={numberVariants}
           animate={isHovered ? "hovered" : "unhovered"}

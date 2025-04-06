@@ -1,6 +1,6 @@
 "use client";
 
-import LinkButton from "../global/LinkButton";
+import LinkButton from "@/components/LinkButton";
 
 const Nav = () => {
   return (

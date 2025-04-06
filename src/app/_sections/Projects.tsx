@@ -1,6 +1,5 @@
 import { getAllProjects } from "@/lib/projects";
-
-import ProjectCardList from "../ProjectCardList";
+import ProjectCardList from "../_components/ProjectCardList";
 
 const Projects = async () => {
   const projects = await getAllProjects();

@@ -1,11 +1,10 @@
 "use client";
 
-import { myEasing } from "@/components/global/Easing";
-import Nav from "@/components/home/LandingNav";
+import { myEasing } from "@/components/Easing";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { motion } from "motion/react";
-
-import Clock from "../Clock";
+import Clock from "../_components/Clock";
+import Nav from "../_components/LandingNav";
 
 const Landing = () => {
   return (

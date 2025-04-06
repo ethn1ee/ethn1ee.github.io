@@ -1,7 +1,6 @@
-import InvisibleHeader from "@/components/home/InvisibleHeader";
-
-import Landing from "../components/home/sections/Landing";
-import Projects from "../components/home/sections/Projects";
+import InvisibleHeader from "./_components/InvisibleHeader";
+import Landing from "./_sections/Landing";
+import Projects from "./_sections/Projects";
 
 export default function Home() {
   return (

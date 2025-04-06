@@ -1,5 +1,5 @@
 import type { Project } from "@/types/project";
-import ArticleHeader from "@/components/projects/ArticleHeader";
+import ArticleHeader from "@/_components/projects/ArticleHeader";
 
 import { markdownToHtml } from "../../../lib/markdown";
 import { formatDate } from "@/lib/formatDate";
@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { getAllSlugs, getProjectBySlug } from "@/lib/projects";
 
 import "./article.scss";
-import ArticleContent from "@/components/projects/ArticleContent";
+import ArticleContent from "@/_components/projects/ArticleContent";
 
 interface ProjectProps {
   params: Promise<{ slug: string }>;

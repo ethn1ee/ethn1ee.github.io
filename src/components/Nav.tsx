@@ -1,7 +1,7 @@
 "use client";
 
 import logo from "@/../public/logo.svg";
-import LinkButton from "@/components/global/LinkButton";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import { Fragment, useState } from "react";
 
 import { myEasing } from "./Easing";
 import NoiseBG from "./NoiseBG";
+import LinkButton from "./LinkButton";
 
 const Nav = () => {
   const paths = usePathname();
