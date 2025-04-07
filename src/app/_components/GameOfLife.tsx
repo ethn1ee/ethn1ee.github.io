@@ -161,10 +161,10 @@ const GameOfLife = () => {
         <span>
           ALIVE: {alive} / {visibleCells}
         </span>
-        <div className="h-[2px] w-full bg-gray-300">
+        <div className="h-[2px] w-full bg-gray-400">
           <motion.div
-            animate={{ width: (alive / visibleCells) * 96 }}
-            className="h-full w-full bg-white"
+            animate={{ scaleX: alive / visibleCells }}
+            className="h-full w-full origin-left bg-white"
           ></motion.div>
         </div>
       </div>
