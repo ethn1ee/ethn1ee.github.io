@@ -136,7 +136,7 @@ const GameOfLife = () => {
 
       <div className="absolute bottom-4 right-4 text-gray-200 sm:bottom-10 sm:right-10">
         ALIVE: {alive} / {rowSize * colSize}
-        <div className="h-[2px] w-full bg-gray-300">
+        <div className="h-1 w-full bg-gray-300">
           <motion.div
             animate={{ width: (alive / (rowSize * colSize)) * 96 }}
             transition={{ ease: myEasing }}
