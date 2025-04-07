@@ -13,6 +13,7 @@ const GameOfLife = () => {
 
   const [cellSize, setCellSize] = useState<number>(0); // Adjusted based on screen size
   const [alive, setAlive] = useState<number>(0);
+  const [visibleCells, setVisibleCells] = useState<number>(0);
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -103,9 +104,16 @@ const GameOfLife = () => {
       if (!ref.current) return;
 
       const containerRect = ref.current.getBoundingClientRect();
-
-      const newCellSize = Math.floor(containerRect.width / colSize);
+      const newCellSize = Math.floor((containerRect.width - 40) / colSize);
       setCellSize(newCellSize);
+
+      console.log(containerRect.width - 40, containerRect.height);
+
+      const newVisibleCells = Math.floor(
+        ((containerRect.width - 40) * containerRect.height) /
+          (newCellSize * newCellSize),
+      );
+      setVisibleCells(newVisibleCells);
     };
 
     const intervalId = setInterval(updateGrid, refreshRate);
@@ -121,13 +129,7 @@ const GameOfLife = () => {
   }, []);
 
   return (
-    <motion.div
-      ref={ref}
-      // initial={{ opacity: 0}}
-      // animate={{ opacity: 1 }}
-      // transition={{ duration: 1, delay: 2, ease: myEasing }}
-      className="size-full overflow-hidden pl-10"
-    >
+    <div ref={ref} className="size-full overflow-hidden pl-10">
       {grid.map((row, rowIndex) => (
         <div key={rowIndex} className="flex">
           {row.map((cell, colIndex) => (
@@ -154,7 +156,7 @@ const GameOfLife = () => {
           GAME OF LIFE
         </LinkButton>
         <span>
-          ALIVE: {alive} / {rowSize * colSize}
+          ALIVE: {alive} / {visibleCells}
         </span>
         <div className="h-[2px] w-full bg-gray-300">
           <motion.div
@@ -163,7 +165,7 @@ const GameOfLife = () => {
           ></motion.div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
