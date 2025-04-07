@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "motion/react";
-import { myEasing } from "@/components/global/Easing";
+import LinkButton from "@/components/global/LinkButton";
 
 const GameOfLife = () => {
   // Configs
   const rowSize = 40;
   const colSize = 40;
-  const refreshRate = 800;
+  const refreshRate = 200;
   const enableRandomGenerate = false;
 
   const [cellSize, setCellSize] = useState<number>(0); // Adjusted based on screen size
@@ -64,12 +64,13 @@ const GameOfLife = () => {
   const updateGrid = useCallback(() => {
     setGrid((currentGrid) => {
       const newGrid = currentGrid.map((row) => [...row]);
-      const actualRowSize = grid.length;
-      const actualColSize = grid[0]?.length || 0;
+      const actualRowSize = currentGrid.length;
+      const actualColSize = currentGrid[0]?.length || 0;
 
       let currentAlive = 0;
 
-      for (let row = 0; row < actualRowSize; row++) { // using actualRowSize to prevent grid not syncing and row and col going out of bounds
+      for (let row = 0; row < actualRowSize; row++) {
+        // using actualRowSize to prevent grid not syncing and row and col going out of bounds
         for (let col = 0; col < actualColSize; col++) {
           const neighbors = countNeighbors(currentGrid, row, col);
 
@@ -95,7 +96,7 @@ const GameOfLife = () => {
 
       return newGrid;
     });
-  }, [grid]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -145,14 +146,19 @@ const GameOfLife = () => {
         </div>
       ))}
 
-      <div className="absolute right-4 bottom-4 text-gray-200 sm:right-10 sm:bottom-10">
+      <div className="absolute right-4 bottom-4 flex flex-col items-end gap-2 leading-none tracking-tight text-gray-200 sm:right-10 sm:bottom-10">
+        <LinkButton
+          href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+          animate={false}
+        >
+          GAME OF LIFE
+        </LinkButton>
         <span>
           ALIVE: {alive} / {rowSize * colSize}
         </span>
         <div className="h-[2px] w-full bg-gray-300">
           <motion.div
             animate={{ width: (alive / (rowSize * colSize)) * 96 }}
-            transition={{ ease: myEasing }}
             className="h-full w-full bg-white"
           ></motion.div>
         </div>
