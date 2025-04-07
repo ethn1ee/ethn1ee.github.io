@@ -2,7 +2,7 @@
 
 🚀 Welcome to my personal web portfolio! This is where I document my projects and experience in web development and beyond.
 
-![Portfolio Preview](/thumbnail.png)
+![Portfolio Preview](./public/thumbnail.png)
 
 ## 🛠 Tech Stack
 

@@ -1,6 +1,6 @@
 "use client";
 
-import ArticleHeader from "@/_components/projects/ArticleHeader";
+import ArticleHeader from "@/app/projects/_components/ArticleHeader";
 import { createProject, getAllSlugs, updateProject } from "@/lib/projects";
 import slugify from "@/lib/slugify";
 import type { Project } from "@/types/project";
