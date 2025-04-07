@@ -148,7 +148,7 @@ const GameOfLife = () => {
         </div>
       ))}
 
-      <div className="absolute right-4 bottom-4 flex flex-col items-end gap-2 leading-none tracking-tight text-gray-200 sm:right-10 sm:bottom-10">
+      <div className="absolute right-4 bottom-4 hidden flex-col items-end gap-2 leading-none tracking-tight text-gray-200 sm:right-10 sm:bottom-10 md:flex">
         <LinkButton
           href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
           animate={false}
