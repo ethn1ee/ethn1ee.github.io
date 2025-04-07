@@ -104,12 +104,12 @@ const GameOfLife = () => {
       if (!ref.current) return;
 
       const containerRect = ref.current.getBoundingClientRect();
-      const newCellSize = Math.floor((containerRect.width - 40) / colSize);
+      const newCellSize = Math.floor((containerRect.width - 40) / colSize); // account for sidebar width 40px
       setCellSize(newCellSize);
 
       console.log(containerRect.width - 40, containerRect.height);
 
-      const newVisibleCells = Math.floor(
+      const newVisibleCells = Math.ceil(
         ((containerRect.width - 40) * containerRect.height) /
           (newCellSize * newCellSize),
       );
@@ -160,7 +160,7 @@ const GameOfLife = () => {
         </span>
         <div className="h-[2px] w-full bg-gray-300">
           <motion.div
-            animate={{ width: (alive / (rowSize * colSize)) * 96 }}
+            animate={{ width: (alive / visibleCells) * 96 }}
             className="h-full w-full bg-white"
           ></motion.div>
         </div>
