@@ -39,7 +39,7 @@ const ProjectCardList = ({ projects }: ProjectCardListProps) => {
   }, [isInView, animate]);
 
   return (
-    <ul ref={scope} className="relative top-6 ml-0 flex flex-col sm:ml-10">
+    <ul ref={scope} className="relative ml-0 flex flex-col sm:ml-10">
       {projects.map((project, index) => (
         <li key={index} className="opacity-0">
           <ProjectCard project={project} index={index} />

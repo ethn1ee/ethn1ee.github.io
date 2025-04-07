@@ -4,6 +4,7 @@ import { myEasing } from "@/components/Easing";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { motion } from "motion/react";
 import Clock from "../_components/Clock";
+import GameOfLife from "../_components/GameOfLife";
 
 const Landing = () => {
   return (
@@ -54,16 +55,19 @@ const Landing = () => {
       </div>
 
       {/* SUBHEADING */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1, ease: myEasing }}
-        className="mt-4 text-gray-300 sm:ml-16"
+        className="mx-4 text-gray-300 sm:ml-16"
       >
         BUILDING WITH CURIOSITY & ORIGINALITY
-      </motion.div>
+      </motion.div> */}
 
       {/* ARROW */}
+
+      <GameOfLife />
+
       <ArrowDownwardIcon className="absolute bottom-4 right-4 text-gray-200 sm:bottom-10 sm:right-10" />
     </section>
   );
