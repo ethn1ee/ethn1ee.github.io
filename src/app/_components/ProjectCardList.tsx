@@ -15,7 +15,6 @@ const ProjectCardList = ({ projects }: ProjectCardListProps) => {
   const isInView = useInView(scope, { once: true });
 
   useEffect(() => {
-    console.log(isInView);
     if (isInView) {
       animate(
         "li",

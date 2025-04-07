@@ -7,8 +7,9 @@ import { myEasing } from "@/components/Easing";
 const GameOfLife = () => {
   const rowSize = 40;
   const colSize = 40;
-  const refreshRate = 500;
+  const refreshRate = 1000;
   const [cellSize, setCellSize] = useState<number>(0);
+  const [alive, setAlive] = useState<number>(0);
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -16,7 +17,7 @@ const GameOfLife = () => {
     Array.from({ length: rowSize }, () =>
       Array.from({ length: colSize }, () => {
         const random = Math.random();
-        return random > 0.9;
+        return random > 0.85;
       }),
     ),
   );
@@ -61,17 +62,31 @@ const GameOfLife = () => {
       const actualRowSize = grid.length;
       const actualColSize = grid[0]?.length || 0;
 
+      let currentAlive = 0;
+
       for (let row = 0; row < actualRowSize; row++) {
         for (let col = 0; col < actualColSize; col++) {
           const neighbors = countNeighbors(currentGrid, row, col);
 
           if (currentGrid[row][col]) {
-            newGrid[row][col] = neighbors === 2 || neighbors === 3;
+            if (neighbors === 2 || neighbors === 3) {
+              newGrid[row][col] = true;
+              currentAlive++;
+            } else {
+              newGrid[row][col] = false;
+            }
           } else {
-            newGrid[row][col] = neighbors === 3;
+            if (neighbors === 3) {
+              newGrid[row][col] = true;
+              currentAlive++;
+            } else {
+              newGrid[row][col] = false;
+            }
           }
         }
       }
+
+      setAlive(currentAlive);
 
       return newGrid;
     });
@@ -96,6 +111,7 @@ const GameOfLife = () => {
       clearInterval(intervalId);
       window.removeEventListener("resize", handleResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -110,13 +126,24 @@ const GameOfLife = () => {
                 height: cellSize,
               }}
               animate={{ backgroundColor: cell ? "#f6f6f6ff" : "#f6f6f600" }}
-              transition={{ duration: 0.3, ease: myEasing }}
+              transition={{ duration: 0 }}
               className="h-4 w-4"
               onClick={() => toggleCell(rowIndex, colIndex)}
             ></motion.div>
           ))}
         </div>
       ))}
+
+      <div className="absolute bottom-4 right-4 text-gray-200 sm:bottom-10 sm:right-10">
+        ALIVE: {alive} / {rowSize * colSize}
+        <div className="h-[2px] w-full bg-gray-300">
+          <motion.div
+            animate={{ width: (alive / (rowSize * colSize)) * 96 }}
+            transition={{ ease: myEasing }}
+            className="h-full w-full bg-white"
+          ></motion.div>
+        </div>
+      </div>
     </div>
   );
 };

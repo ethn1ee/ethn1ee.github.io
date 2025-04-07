@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <section
       id="landing"
-      className="relative flex h-screen w-screen flex-col pb-4 pt-[60px]"
+      className="relative flex h-screen w-screen flex-col pt-[60px]"
     >
       {/* HEADER */}
       <header className="relative my-4 flex h-[10vw] items-center gap-4 px-4 sm:pl-16 sm:pr-10">
@@ -53,22 +53,11 @@ const Landing = () => {
         <span className="leading-none">ATLANTA, GA &nbsp;</span>
         <Clock />
       </div>
-
-      {/* SUBHEADING */}
-      {/* <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 1, ease: myEasing }}
-        className="mx-4 text-gray-300 sm:ml-16"
-      >
-        BUILDING WITH CURIOSITY & ORIGINALITY
-      </motion.div> */}
-
-      {/* ARROW */}
-
+      
+      {/* GAME OF LIFE */}
       <GameOfLife />
 
-      <ArrowDownwardIcon className="absolute bottom-4 right-4 text-gray-200 sm:bottom-10 sm:right-10" />
+      {/* <ArrowDownwardIcon className="absolute bottom-4 right-4 text-gray-200 sm:bottom-10 sm:right-10" /> */}
     </section>
   );
 };
