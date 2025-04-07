@@ -1,6 +1,6 @@
 "use client";
 
-import SpinningText from "@/components/SpinningText";
+import SpinningText from "@/components/global/SpinningText";
 import { useEffect, useMemo, useState } from "react";
 
 const Clock = () => {

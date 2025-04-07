@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-
 import { myEasing } from "./Easing";
 
 interface SpinningTextProps {

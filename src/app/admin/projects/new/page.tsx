@@ -121,7 +121,7 @@ export default function NewProject() {
           <motion.button
             type="submit"
             whileHover={{ opacity: 0.6 }}
-            className="mt-4 w-full rounded bg-white p-4 font-bold text-black"
+            className="mt-4 w-full rounded-sm bg-white p-4 font-bold text-black"
           >
             CREATE POST
           </motion.button>
@@ -150,7 +150,7 @@ const Input = ({ type, placeholder, value, onChange }: InputProps) => {
         placeholder={placeholder}
         value={value ?? ""}
         onChange={onChange}
-        className="mb-4 w-full rounded border border-gray-300 bg-transparent p-2"
+        className="mb-4 w-full rounded-sm border border-gray-300 bg-transparent p-2"
       />
     </>
   );

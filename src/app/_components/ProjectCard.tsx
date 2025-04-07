@@ -1,6 +1,6 @@
 "use client";
 
-import { myEasing } from "@/components/Easing";
+import { myEasing } from "@/components/global/Easing";
 import { formatDate } from "@/lib/formatDate";
 import slugify from "@/lib/slugify";
 import type { Project } from "@/types/project";
@@ -52,10 +52,10 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       href={"/projects/" + slugify(project.title)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex h-[120px] w-full cursor-pointer gap-6 overflow-hidden pl-6 pr-10 sm:gap-10"
+      className="relative flex h-[120px] w-full cursor-pointer gap-6 overflow-hidden pr-10 pl-6 sm:gap-10"
     >
       {/* BORDER */}
-      <div className="absolute left-0 top-0 h-[1px] w-full bg-gray-300" />
+      <div className="absolute top-0 left-0 h-[1px] w-full bg-gray-300" />
 
       {/* BG */}
       <motion.div
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       />
 
       {/* NUMBER */}
-      <div className="h-full w-fit shrink-0 text-[130px] font-black leading-none tracking-tight">
+      <div className="h-full w-fit shrink-0 text-[130px] leading-none font-black tracking-tight">
         <motion.span
           variants={numberVariants}
           animate={isHovered ? "hovered" : "unhovered"}
@@ -76,7 +76,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         </motion.span>
       </div>
 
-      <div className="flex flex-grow flex-col justify-center gap-2 leading-none">
+      <div className="flex grow flex-col justify-center gap-2 leading-none">
         {/* DETAILS */}
         <motion.div
           variants={subtitleVariants}

@@ -8,9 +8,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Fragment, useState } from "react";
 
-import { myEasing } from "./Easing";
-import NoiseBG from "./NoiseBG";
-import LinkButton from "./LinkButton";
+import { myEasing } from "../global/Easing";
+import NoiseBG from "../global/NoiseBG";
+import LinkButton from "../global/LinkButton";
 
 const Nav = () => {
   const paths = usePathname();
@@ -27,7 +27,7 @@ const Nav = () => {
         }}
         exit={{ top: -60 }}
         transition={{ duration: 0.8, ease: myEasing }}
-        className="fixed left-0 z-50 flex h-[60px] w-screen items-center justify-between border-b border-gray-300 bg-black p-4 sm:pl-16 sm:pr-10"
+        className="fixed left-0 z-50 flex h-[60px] w-screen items-center justify-between border-b border-gray-300 bg-black p-4 sm:pr-10 sm:pl-16"
       >
         <NoiseBG />
 
@@ -98,7 +98,7 @@ const VerticalLinks = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5, ease: myEasing }}
       className={
-        "absolute right-0 top-[60px] z-10 flex w-screen flex-col items-end gap-10 bg-gradient-to-b from-black to-transparent px-4 pb-40 pt-10 font-mono leading-none tracking-tight text-gray-200"
+        "absolute top-[60px] right-0 z-10 flex w-screen flex-col items-end gap-10 bg-linear-to-b from-black to-transparent px-4 pt-10 pb-40 font-mono leading-none tracking-tight text-gray-200"
       }
     >
       <li>

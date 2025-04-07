@@ -2,13 +2,16 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "motion/react";
-import { myEasing } from "@/components/Easing";
+import { myEasing } from "@/components/global/Easing";
 
 const GameOfLife = () => {
+  // Configs
   const rowSize = 40;
   const colSize = 40;
-  const refreshRate = 1000;
-  const [cellSize, setCellSize] = useState<number>(0);
+  const refreshRate = 800;
+  const enableRandomGenerate = false;
+
+  const [cellSize, setCellSize] = useState<number>(0); // Adjusted based on screen size
   const [alive, setAlive] = useState<number>(0);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -16,8 +19,10 @@ const GameOfLife = () => {
   const [grid, setGrid] = useState<boolean[][]>(
     Array.from({ length: rowSize }, () =>
       Array.from({ length: colSize }, () => {
+        if (!enableRandomGenerate) return false;
+
         const random = Math.random();
-        return random > 0.85;
+        return random > 0.8;
       }),
     ),
   );
@@ -64,7 +69,7 @@ const GameOfLife = () => {
 
       let currentAlive = 0;
 
-      for (let row = 0; row < actualRowSize; row++) {
+      for (let row = 0; row < actualRowSize; row++) { // using actualRowSize to prevent grid not syncing and row and col going out of bounds
         for (let col = 0; col < actualColSize; col++) {
           const neighbors = countNeighbors(currentGrid, row, col);
 
@@ -115,7 +120,13 @@ const GameOfLife = () => {
   }, []);
 
   return (
-    <div ref={ref} className="size-full overflow-hidden pl-10">
+    <motion.div
+      ref={ref}
+      // initial={{ opacity: 0}}
+      // animate={{ opacity: 1 }}
+      // transition={{ duration: 1, delay: 2, ease: myEasing }}
+      className="size-full overflow-hidden pl-10"
+    >
       {grid.map((row, rowIndex) => (
         <div key={rowIndex} className="flex">
           {row.map((cell, colIndex) => (
@@ -125,18 +136,20 @@ const GameOfLife = () => {
                 width: cellSize,
                 height: cellSize,
               }}
-              animate={{ backgroundColor: cell ? "#f6f6f6ff" : "#f6f6f600" }}
+              animate={{ backgroundColor: cell ? "#aaaaaaff" : "#aaaaaa00" }}
               transition={{ duration: 0 }}
               className="h-4 w-4"
-              onClick={() => toggleCell(rowIndex, colIndex)}
+              onMouseEnter={() => toggleCell(rowIndex, colIndex)}
             ></motion.div>
           ))}
         </div>
       ))}
 
-      <div className="absolute bottom-4 right-4 text-gray-200 sm:bottom-10 sm:right-10">
-        ALIVE: {alive} / {rowSize * colSize}
-        <div className="h-1 w-full bg-gray-300">
+      <div className="absolute right-4 bottom-4 text-gray-200 sm:right-10 sm:bottom-10">
+        <span>
+          ALIVE: {alive} / {rowSize * colSize}
+        </span>
+        <div className="h-[2px] w-full bg-gray-300">
           <motion.div
             animate={{ width: (alive / (rowSize * colSize)) * 96 }}
             transition={{ ease: myEasing }}
@@ -144,7 +157,7 @@ const GameOfLife = () => {
           ></motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

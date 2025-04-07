@@ -4,9 +4,8 @@ import useLocomotiveScroll from "@/hooks/useLocomotiveScroll";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
-
-import { myEasing } from "./Easing";
 import SpinningText from "./SpinningText";
+import { myEasing } from "./Easing";
 
 interface LinkButtonProps {
   href: string;

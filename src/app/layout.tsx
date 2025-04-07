@@ -1,4 +1,4 @@
-import { fontVariables } from "@/components/Fonts";
+import { fontVariables } from "@/components/global/Fonts";
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -6,9 +6,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import Head from "next/head";
 import { metadataObject } from "./_components/Metadata";
-import NoiseBG from "@/components/NoiseBG";
-import Sidebar from "@/components/Sidebar";
-import Nav from "@/components/Nav";
+import NoiseBG from "@/components/global/NoiseBG";
+
+import Sidebar from "@/components/global/Sidebar";
+import Nav from "@/components/global/Nav";
 
 export const metadata: Metadata = metadataObject;
 
