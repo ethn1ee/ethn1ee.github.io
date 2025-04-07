@@ -109,9 +109,12 @@ const GameOfLife = () => {
 
       console.log(containerRect.width - 40, containerRect.height);
 
-      const newVisibleCells = Math.ceil(
-        ((containerRect.width - 40) * containerRect.height) /
-          (newCellSize * newCellSize),
+      const newVisibleCells = Math.max(
+        rowSize * colSize,
+        Math.ceil(
+          ((containerRect.width - 40) * containerRect.height) /
+            (newCellSize * newCellSize),
+        ),
       );
       setVisibleCells(newVisibleCells);
     };
