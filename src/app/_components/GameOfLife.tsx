@@ -163,7 +163,7 @@ const GameOfLife = () => {
         </span>
         <div className="h-[2px] w-full bg-gray-400">
           <motion.div
-            animate={{ scaleX: alive / visibleCells }}
+            style={{ scaleX: alive / visibleCells }}
             className="h-full w-full origin-left bg-white"
           ></motion.div>
         </div>
