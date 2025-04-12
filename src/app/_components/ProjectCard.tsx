@@ -3,13 +3,13 @@
 import { myEasing } from "@/components/global/Easing";
 import { formatDate } from "@/lib/formatDate";
 import slugify from "@/lib/slugify";
-import type { Project } from "@/types/project";
+import type { Post } from "@/types/post";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 
 interface ProjectCardProps {
-  project: Project;
+  project: Post;
   index: number;
 }
 

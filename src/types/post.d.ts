@@ -1,4 +1,4 @@
-export interface Project {
+export interface Post {
   title: string;
   slug: string;
   start_date: Date;

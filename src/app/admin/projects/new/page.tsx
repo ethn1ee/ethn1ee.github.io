@@ -1,9 +1,9 @@
 "use client";
 
-import ArticleHeader from "@/app/projects/_components/ArticleHeader";
-import { createProject, getAllSlugs, updateProject } from "@/lib/projects";
+import ArticleHeader from "@/app/blog/_components/ArticleHeader";
+import { createPost, getAllSlugs, updatePost } from "@/lib/projects";
 import slugify from "@/lib/slugify";
-import type { Project } from "@/types/project";
+import type { Post } from "@/types/post";
 import { motion } from "motion/react";
 import { FormEvent, useState } from "react";
 
@@ -35,14 +35,14 @@ export default function NewProject() {
       end_date: form.end_date ? new Date(form.end_date) : null,
       slug: slugify(form.title),
       tags: tagsArray,
-    } satisfies Project;
+    } satisfies Post;
 
     const allSlugs = (await getAllSlugs()).map(
-      (project: Pick<Project, "slug">) => project.slug,
+      (project: Pick<Post, "slug">) => project.slug,
     );
 
     if (allSlugs.includes(newProject.slug)) {
-      updateProject(newProject).then(() => {
+      updatePost(newProject).then(() => {
         setForm({
           title: "",
           start_date: "",
@@ -53,7 +53,7 @@ export default function NewProject() {
         alert("Project updated successfully!");
       });
     } else {
-      createProject(newProject).then(() => {
+      createPost(newProject).then(() => {
         setForm({
           title: "",
           start_date: "",

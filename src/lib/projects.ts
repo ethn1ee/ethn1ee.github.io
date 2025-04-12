@@ -1,10 +1,10 @@
 "use server";
 
-import type { Project } from "@/types/project";
+import type { Post } from "@/types/post";
 
 import sql from "./db";
 
-export async function getAllProjects(): Promise<Project[]> {
+export async function getAllPosts(): Promise<Post[]> {
   return await sql`
     SELECT * FROM projects
     ORDER BY 
@@ -13,28 +13,28 @@ export async function getAllProjects(): Promise<Project[]> {
   `;
 }
 
-export async function getAllSlugs(): Promise<Pick<Project, "slug">[]> {
+export async function getAllSlugs(): Promise<Pick<Post, "slug">[]> {
   return await sql`SELECT slug FROM projects`;
 }
 
-export async function getProjectBySlug(slug: string): Promise<Project> {
+export async function getPostBySlug(slug: string): Promise<Post> {
   const result = await sql`
     SELECT * FROM projects
     WHERE slug = ${slug}
   `;
-  return result[0] as Project;
+  return result[0] as Post;
 }
 
-export async function createProject(project: Project): Promise<void> {
+export async function createPost(post: Post): Promise<void> {
   await sql`
-    INSERT INTO projects ${sql(project, "title", "slug", "start_date", "end_date", "tags", "content")}
+    INSERT INTO projects ${sql(post, "title", "slug", "start_date", "end_date", "tags", "content")}
   `;
 }
 
-export async function updateProject(project: Project): Promise<void> {
+export async function updatePost(post: Post): Promise<void> {
   await sql`
     UPDATE projects
-    SET ${sql(project, "title", "slug", "start_date", "end_date", "tags", "content")}
-    WHERE slug = ${project.slug}
+    SET ${sql(post, "title", "slug", "start_date", "end_date", "tags", "content")}
+    WHERE slug = ${post.slug}
   `;
 }

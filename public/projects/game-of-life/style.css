@@ -24,6 +24,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(./noise.webp);
-  background-repeat: repeat;
+  /* background-image: url(./noise.webp);
+  background-repeat: repeat; */
 }

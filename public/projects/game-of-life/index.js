@@ -1,7 +1,7 @@
-import { matrixSize, matrix, toggleCell } from './gameoflife.js';
+import { matrixSize, matrix, toggleCell } from "./gameoflife.js";
 
 const canvas =
-  /** @type {HTMLCanvasElement} */ document.getElementById('matrix');
+  /** @type {HTMLCanvasElement} */ document.getElementById("matrix");
 
 /**
  * @type {CanvasRenderingContext2D}
@@ -16,31 +16,28 @@ let currentCell = {
 let highlightedCells = [];
 
 function draw() {
-  ctx = canvas.getContext('2d');
+  ctx = canvas.getContext("2d");
 
   drawMatrix();
-  window.addEventListener('resize', drawMatrix);
+  window.addEventListener("resize", drawMatrix);
 
-  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener("mousemove", handleMouseMove);
 }
 
 function drawMatrix() {
   // Resize based on window size
-  const container = document.getElementById('matrix-container');
+  const container = document.getElementById("matrix-container");
   canvas.width = container.clientWidth;
   canvas.height = container.clientHeight;
   cellSize = canvas.width / matrixSize;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = 'black';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   matrix.forEach((row, i) => {
     row.forEach((cell, j) => {
       if (cell) {
-        ctx.fillStyle = 'white';
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0)';
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "rgba(255, 255, 255, 0)";
         ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
       }
     });

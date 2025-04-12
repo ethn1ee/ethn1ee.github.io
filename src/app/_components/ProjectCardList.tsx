@@ -1,13 +1,13 @@
 "use client";
 
-import type { Project } from "@/types/project";
+import type { Post } from "@/types/post";
 import { stagger, useAnimate, useInView } from "motion/react";
 import { useEffect } from "react";
 
 import ProjectCard from "./ProjectCard";
 
 interface ProjectCardListProps {
-  projects: Project[];
+  projects: Post[];
 }
 
 const ProjectCardList = ({ projects }: ProjectCardListProps) => {
