@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/project/:match*",
-      "destination": "https://:match*.vercel.com/"
+      "source": "/project/:projectName/",
+      "destination": "https://:projectName.vercel.app/"
     }
   ]
 }
