@@ -16,4 +16,12 @@ const Project = async ({ params }: ProjectProps) => {
   );
 };
 
+export const generateStaticParams = async () => {
+  const projects = [{ slug: "game-of-life" }];
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+};
+
 export default Project;
