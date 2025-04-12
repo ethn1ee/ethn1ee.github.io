@@ -1,6 +1,6 @@
 import InvisibleHeader from "./_components/InvisibleHeader";
 import Landing from "./_sections/Landing";
-import Projects from "./_sections/Projects";
+// import Projects from "./_sections/Projects";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <main className="w-screen overflow-hidden">
         <InvisibleHeader />
         <Landing />
-        <Projects />
+        {/* <Projects /> */}
       </main>
     </>
   );

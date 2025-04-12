@@ -77,7 +77,7 @@ const HorizontalLinks = () => {
         <LinkButton href="/">HOME</LinkButton>
       </li>
       <li>
-        <LinkButton href="/#projects">PROJECTS</LinkButton>
+        <LinkButton href="/projects">PROJECTS</LinkButton>
       </li>
       <li>
         <LinkButton href="https://github.com/ethn1ee">GITHUB</LinkButton>
@@ -108,7 +108,7 @@ const VerticalLinks = () => {
         </LinkButton>
       </li>
       <li>
-        <LinkButton href="/#projects" animate={false}>
+        <LinkButton href="/projects" animate={false}>
           PROJECTS
         </LinkButton>
       </li>

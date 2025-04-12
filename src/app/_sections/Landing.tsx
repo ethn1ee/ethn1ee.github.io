@@ -3,7 +3,6 @@
 import { myEasing } from "@/components/global/Easing";
 import { motion } from "motion/react";
 import Clock from "../_components/Clock";
-// import GameOfLife from "../_components/GameOfLife";
 
 const Landing = () => {
   return (
@@ -52,9 +51,6 @@ const Landing = () => {
         <span className="leading-none">ATLANTA, GA &nbsp;</span>
         <Clock />
       </div>
-
-      {/* GAME OF LIFE */}
-      {/* <GameOfLife /> */}
     </section>
   );
 };
