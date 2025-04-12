@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    {"source": "/project/:match*", "destination": "https://:match*.vercel.com/"},
+    {
+      "source": "/project/:match*",
+      "destination": "https://:match*.vercel.com/"
+    }
   ]
 }
