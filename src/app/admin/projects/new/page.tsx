@@ -2,7 +2,7 @@
 
 import ArticleHeader from "@/app/blog/_components/ArticleHeader";
 import { createPost, getAllSlugs, updatePost } from "@/lib/projects";
-import slugify from "@/lib/slugify";
+import toSlug from "@/lib/toSlug";
 import type { Post } from "@/types/post";
 import { motion } from "motion/react";
 import { FormEvent, useState } from "react";
@@ -33,7 +33,7 @@ export default function NewProject() {
       ...form,
       start_date: new Date(form.start_date),
       end_date: form.end_date ? new Date(form.end_date) : null,
-      slug: slugify(form.title),
+      slug: toSlug(form.title),
       tags: tagsArray,
     } satisfies Post;
 

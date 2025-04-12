@@ -11,6 +11,7 @@ import { Fragment, useState } from "react";
 import { myEasing } from "../global/Easing";
 import NoiseBG from "../global/NoiseBG";
 import LinkButton from "../global/LinkButton";
+import toTitle from "@/lib/toTitle";
 
 const Nav = () => {
   const paths = usePathname();
@@ -43,7 +44,7 @@ const Nav = () => {
           <span>/</span>
           {pathNames.map((path, index) => (
             <Fragment key={index}>
-              <span>{path.toUpperCase()}</span>
+              <span>{toTitle(path)}</span>
               {index !== pathNames.length - 1 && <span>/</span>}
             </Fragment>
           ))}

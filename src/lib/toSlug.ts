@@ -1,8 +1,8 @@
-const slugify = (str: string) => {
+const toSlug = (str: string) => {
   return str
     .toLowerCase()
     .replace(/ /g, "-")
     .replace(/[^\w-]+/g, "");
 };
 
-export default slugify;
+export default toSlug;

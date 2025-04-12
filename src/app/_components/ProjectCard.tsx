@@ -2,7 +2,7 @@
 
 import { myEasing } from "@/components/global/Easing";
 import { formatDate } from "@/lib/formatDate";
-import slugify from "@/lib/slugify";
+import toSlug from "@/lib/toSlug";
 import type { Post } from "@/types/post";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -49,7 +49,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
   return (
     <Link
-      href={"/projects/" + slugify(project.title)}
+      href={"/projects/" + toSlug(project.title)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative flex h-[120px] w-full cursor-pointer gap-6 overflow-hidden pr-10 pl-6 sm:gap-10"
