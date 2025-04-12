@@ -22,7 +22,7 @@ const Sidebar = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  });
+  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", () => {
     setScrollBarY(200 * scrollYProgress.get());
