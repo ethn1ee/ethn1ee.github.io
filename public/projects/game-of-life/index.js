@@ -1,4 +1,22 @@
-import { matrixSize, matrix, toggleCell } from "./gameoflife.js";
+// Defining number of cells
+const matrixWidth = 100;
+const matrixHeight = Math.ceil(
+  (matrixWidth * window.innerHeight) / window.innerWidth,
+);
+
+let matrix = Array.from({ length: matrixWidth }, () =>
+  Array.from({ length: matrixHeight }, () => {
+    return false;
+  }),
+);
+
+let cellSize = 0;
+let highlightedCells = [];
+let alive = 0;
+let currentCell = {
+  i: -1,
+  j: -1,
+};
 
 const canvas =
   /** @type {HTMLCanvasElement} */ document.getElementById("matrix");
@@ -7,13 +25,80 @@ const canvas =
  * @type {CanvasRenderingContext2D}
  */
 let ctx;
-let cellSize = canvas.width / matrixSize;
-let currentCell = {
-  i: -1,
-  j: -1,
-};
 
-let highlightedCells = [];
+/**
+ *
+ * @param {number} i
+ * @param {number} j
+ */
+function toggleCell(i, j) {
+  if (i < 0 || j < 0 || i >= matrixWidth || j >= matrixHeight) return;
+
+  if (matrix[i][j]) {
+    alive -= 1;
+  } else {
+    alive += 1;
+  }
+  matrix[i][j] = !matrix[i][j];
+}
+
+function generateNext() {
+  const newMatrix = matrix.map((row) => row.map((cell) => cell));
+  let born = 0;
+  let died = 0;
+
+  matrix.forEach((row, i) => {
+    row.forEach((cell, j) => {
+      newMatrix[i][j] = checkNeighbors(i, j);
+      if (cell && !newMatrix[i][j]) died += 1;
+      else if (!cell && newMatrix[i][j]) born += 1;
+    });
+  });
+
+  matrix = newMatrix;
+  alive += born - died;
+
+  const aliveElement = document.getElementById("stat-alive");
+  aliveElement.textContent = `Alive: ${alive}`;
+}
+
+/**
+ *
+ * @param {number} i
+ * @param {number} j
+ * @returns {boolean}
+ */
+function checkNeighbors(i, j) {
+  const offsets = [-1, 0, 1];
+  let numNeighbors = 0;
+
+  offsets.forEach((offset_i) => {
+    offsets.forEach((offset_j) => {
+      if (offset_i === 0 && offset_j === 0) return;
+      const neighbor_i = offset_i + i;
+      const neighbor_j = offset_j + j;
+
+      if (
+        neighbor_i < 0 ||
+        neighbor_j < 0 ||
+        neighbor_i >= matrixWidth ||
+        neighbor_j >= matrixHeight
+      )
+        return;
+
+      numNeighbors += matrix[neighbor_i][neighbor_j] ? 1 : 0;
+    });
+  });
+
+  if (matrix[i][j]) {
+    return numNeighbors === 2 || numNeighbors === 3;
+  } else {
+    return numNeighbors === 3;
+  }
+}
+
+generateNext();
+setInterval(generateNext, 100);
 
 function draw() {
   ctx = canvas.getContext("2d");
@@ -29,7 +114,7 @@ function drawMatrix() {
   const container = document.getElementById("matrix-container");
   canvas.width = container.clientWidth;
   canvas.height = container.clientHeight;
-  cellSize = canvas.width / matrixSize;
+  cellSize = canvas.width / matrixWidth;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
