@@ -1,8 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/gameoflife",
-      "destination": "https://canvas-gameoflife.vercel.app/"
-    }
+    {"source": "/project/:match*", "destination": "https://:match*.vercel.com/"},
   ]
 }
