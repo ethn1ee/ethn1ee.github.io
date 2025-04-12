@@ -3,7 +3,7 @@
 import { myEasing } from "@/components/global/Easing";
 import { motion } from "motion/react";
 import Clock from "../_components/Clock";
-import GameOfLife from "../_components/GameOfLife";
+// import GameOfLife from "../_components/GameOfLife";
 
 const Landing = () => {
   return (
@@ -54,7 +54,7 @@ const Landing = () => {
       </div>
 
       {/* GAME OF LIFE */}
-      <GameOfLife />
+      {/* <GameOfLife /> */}
     </section>
   );
 };

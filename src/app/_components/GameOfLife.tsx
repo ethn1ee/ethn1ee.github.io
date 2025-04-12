@@ -13,37 +13,35 @@ const GameOfLife = () => {
   >([]);
   const matrixRef = useRef<number[][]>(
     Array.from({ length: matrixSize }, () => Array(matrixSize).fill(0)),
-  ); // Use useRef for matrix
-  const [alive, setAlive] = useState(0);
+  );
   const [cellSize, setCellSize] = useState<number>(0);
 
   const toggleCell = (i: number, j: number) => {
     if (i < 0 || j < 0 || i >= matrixSize || j >= matrixSize) return;
 
     const matrix = matrixRef.current;
-    matrix[i][j] = matrix[i][j] > 0 ? 0 : 1; // Toggle between 0 and 1
-    setAlive((prevAlive) => prevAlive + (matrix[i][j] > 0 ? 1 : -1));
+    matrix[i][j] = matrix[i][j] > 0 ? 0 : 1;
   };
 
   const generateNext = () => {
     const matrix = matrixRef.current;
     const newMatrix = matrix.map((row, i) =>
       row.map((cell, j) => {
-        // Decay every cell by -0.2
-        let newValue = cell - 0.5;
-        if (newValue < 0) newValue = 0; // Ensure value doesn't go below 0
+        let newValue = cell - 0.8;
+        if (newValue < 0) newValue = 0;
 
-        // Apply neighbor rules on top of decay
         const neighbors = countNeighbors(matrix, i, j);
         if (cell > 0) {
-          // Cell is alive
           if (neighbors === 2 || neighbors === 3) {
-            newValue = Math.min(newValue + 0.4, 1); // Increase value slightly
+            newValue = Math.min(newValue + 0.3, 1);
+          } else {
+            newValue = Math.max(newValue - 0.3, 0);
           }
         } else {
-          // Cell is dead
           if (neighbors === 3) {
-            newValue = Math.min(newValue + 0.3, 1); // Cell is "born" with a smaller boost
+            newValue = Math.min(newValue + 0.3, 1);
+          } else {
+            newValue = Math.max(newValue - 0.3, 0);
           }
         }
 
@@ -53,10 +51,6 @@ const GameOfLife = () => {
 
     // Update the matrix directly
     matrixRef.current = newMatrix;
-
-    // Update the alive count
-    const newAlive = newMatrix.flat().filter((cell) => cell > 0).length;
-    setAlive(newAlive);
   };
 
   const countNeighbors = (matrix: number[][], i: number, j: number): number => {
@@ -167,12 +161,13 @@ const GameOfLife = () => {
       clearInterval(intervalId);
       clearInterval(intervalId2);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellSize]);
 
   return (
     <div
       ref={containerRef}
-      className="h-full w-full overflow-hidden pl-10 blur-3xl"
+      className="h-full w-full overflow-hidden pl-10"
     >
       <canvas ref={canvasRef}></canvas>
     </div>
