@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/project/gameoflife",
+        source: "/project/gameoflife/:path*",
         destination: "https://canvas-gameoflife.vercel.app/",
       },
     ];
