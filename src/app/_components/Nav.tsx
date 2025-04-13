@@ -12,6 +12,7 @@ import toTitle from "@/lib/toTitle";
 import { myEasing } from "./Easing";
 import NoiseBG from "./NoiseBG";
 import LinkButton from "./LinkButton";
+import Link from "next/link";
 
 const Nav = () => {
   const paths = usePathname();
@@ -33,14 +34,16 @@ const Nav = () => {
         <NoiseBG />
 
         {/* BREADCRUMB */}
-        <div className="pointer-events-none hidden items-center gap-3 leading-none tracking-tight text-gray-300 md:flex">
-          <Image
-            src={logo}
-            alt="logo"
-            width={16}
-            height={16}
-            className="text-gray-300 opacity-40"
-          />
+        <div className="flex items-center gap-3 leading-none tracking-tight text-gray-300">
+          <Link href="/">
+            <Image
+              src={logo}
+              alt="logo"
+              width={16}
+              height={16}
+              className="text-gray-300 opacity-40"
+            />
+          </Link>
           <span>/</span>
           <AnimatePresence>
             {pathNames.map((path, index) => (

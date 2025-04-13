@@ -15,6 +15,12 @@ export default function Home() {
           id="landing"
           className="relative flex h-screen w-screen flex-col pt-[60px]"
         >
+          {/* CLOCK */}
+          <div className="absolute top-[calc(155px+60px+16px)] left-3 hidden h-4 w-fit origin-top-left -rotate-90 font-mono text-xs text-gray-300 sm:block">
+            <span className="leading-none">ATLANTA, GA &nbsp;</span>
+            <Clock />
+          </div>
+
           {/* HEADER */}
           <header className="relative my-4 flex h-[10vw] items-center gap-4 px-4 sm:pr-10 sm:pl-16">
             <motion.span
@@ -51,11 +57,12 @@ export default function Home() {
             </motion.span>
           </header>
 
-          {/* CLOCK */}
-          <div className="absolute top-[calc(155px+60px+16px)] left-3 hidden h-4 w-fit origin-top-left -rotate-90 font-mono text-xs text-gray-300 sm:block">
-            <span className="leading-none">ATLANTA, GA &nbsp;</span>
-            <Clock />
-          </div>
+          {/* BIO */}
+          <p className="absolute bottom-10 w-full max-w-[400px] px-4 sm:pl-20">
+            {`I’m a passionate student studying computer science and psychology.
+            Here, I document my explorations in web, machine learning, and
+            design.`.toUpperCase()}
+          </p>
 
           {/* CANVAS */}
           <canvas className="h-full w-full"></canvas>
