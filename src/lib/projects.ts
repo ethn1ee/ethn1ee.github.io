@@ -1,40 +1,51 @@
 "use server";
 
-import type { Post } from "@/types/post";
+import type { Project } from "@/types/project";
 
 import sql from "./db";
 
-export async function getAllPosts(): Promise<Post[]> {
+async function setSearchPath() {
+  await sql`SET search_path TO portfolio`;
+}
+
+export async function getAllProjects(): Promise<Project[]> {
+  await setSearchPath();
   return await sql`
     SELECT * FROM projects
     ORDER BY 
-      end_date DESC,
-      start_date DESC
+      date DESC, title ASC;
   `;
 }
 
-export async function getAllSlugs(): Promise<Pick<Post, "slug">[]> {
-  return await sql`SELECT slug FROM projects`;
+export async function getAllProjectSlugs(): Promise<Pick<Project, "slug">[]> {
+  await setSearchPath();
+  return await sql`
+    SELECT slug FROM projects
+  `;
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+export async function getProjectBySlug(slug: string): Promise<Project> {
+  await setSearchPath();
   const result = await sql`
     SELECT * FROM projects
     WHERE slug = ${slug}
   `;
-  return result[0] as Post;
+  return result[0] as Project;
 }
 
-export async function createPost(post: Post): Promise<void> {
+export async function createProject(project: Project): Promise<void> {
+  await setSearchPath();
   await sql`
-    INSERT INTO projects ${sql(post, "title", "slug", "start_date", "end_date", "tags", "content")}
+    INSERT INTO projects 
+    ${sql(project, "slug", "title", "date", "tags", "description", "github", "embedLink", "externalLink")}
   `;
 }
 
-export async function updatePost(post: Post): Promise<void> {
+export async function updatePost(project: Project): Promise<void> {
+  await setSearchPath();
   await sql`
     UPDATE projects
-    SET ${sql(post, "title", "slug", "start_date", "end_date", "tags", "content")}
-    WHERE slug = ${post.slug}
+    SET ${sql(project, "slug", "title", "date", "tags", "description", "github", "embedLink", "externalLink")}
+    WHERE slug = ${project.slug}
   `;
 }

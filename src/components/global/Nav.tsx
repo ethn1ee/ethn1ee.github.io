@@ -42,12 +42,24 @@ const Nav = () => {
             className="text-gray-300 opacity-40"
           />
           <span>/</span>
-          {pathNames.map((path, index) => (
-            <Fragment key={index}>
-              <span>{toTitle(path)}</span>
-              {index !== pathNames.length - 1 && <span>/</span>}
-            </Fragment>
-          ))}
+          <AnimatePresence>
+            {pathNames.map((path, index) => (
+              <Fragment key={index}>
+                <motion.span
+                  key={path}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ ease: myEasing, duration: 0.3 }}
+                >
+                  {toTitle(path)}
+                  {index !== pathNames.length - 1 && (
+                    <span className="ml-3">/</span>
+                  )}
+                </motion.span>
+              </Fragment>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* LINKS */}

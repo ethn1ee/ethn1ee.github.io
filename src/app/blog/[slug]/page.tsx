@@ -1,7 +1,7 @@
 import { markdownToHtml } from "../../../lib/markdown";
 import { formatDate } from "@/lib/formatDate";
 import { notFound } from "next/navigation";
-import { getAllSlugs, getPostBySlug } from "@/lib/projects";
+import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 
 import "./article.scss";
 import ArticleHeader from "../_components/ArticleHeader";

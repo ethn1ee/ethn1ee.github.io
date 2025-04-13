@@ -1,7 +1,7 @@
 "use client";
 
 import ArticleHeader from "@/app/blog/_components/ArticleHeader";
-import { createPost, getAllSlugs, updatePost } from "@/lib/projects";
+import { createPost, getAllSlugs, updatePost } from "@/lib/blog";
 import toSlug from "@/lib/toSlug";
 import type { Post } from "@/types/post";
 import { motion } from "motion/react";
