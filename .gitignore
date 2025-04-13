@@ -40,8 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# in developmnet
-/src/app/admin
-
 # Jetbrains
 .idea

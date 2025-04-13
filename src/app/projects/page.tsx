@@ -4,7 +4,6 @@ import { myEasing } from "@/components/global/Easing";
 import { getAllProjects } from "@/lib/projects";
 import { Project } from "@/types/project";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProjectCard from "./_components/ProjectCard";
 
