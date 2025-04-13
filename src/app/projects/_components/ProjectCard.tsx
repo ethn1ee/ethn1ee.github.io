@@ -53,21 +53,39 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         transition={{ duration: 0.5, ease: myEasing }}
         className="overflow-hidden"
       >
-        <p className="font-sans mt-2 text-gray-200">{project.description}</p>
+        <p className="mt-2 font-sans text-gray-200">{project.description}</p>
 
-        <div className="mt-2 flex items-center justify-end gap-4">
+        <div className="mt-2 flex items-center justify-end gap-2">
           {project.github && (
             <Link
               href={project.github}
               target="_blank"
               className="text-gray-200"
             >
-              <CodeBracketIcon className="size-5" />
+              <motion.div
+                whileHover={{
+                  backgroundColor: "var(--color-white)",
+                  color: "var(--color-black)",
+                }}
+                transition={{ duration: 0.5, ease: myEasing }}
+                className="flex items-center justify-center rounded-lg p-1"
+              >
+                <CodeBracketIcon className="size-5" />
+              </motion.div>
             </Link>
           )}
           {link && (
             <Link href={link} target="_blank" className="text-gray-200">
-              <ArrowTopRightOnSquareIcon className="size-5" />
+              <motion.div
+                whileHover={{
+                  backgroundColor: "var(--color-white)",
+                  color: "var(--color-black)",
+                }}
+                transition={{ duration: 0.5, ease: myEasing }}
+                className="flex items-center justify-center rounded-lg p-1"
+              >
+                <ArrowTopRightOnSquareIcon className="size-5" />
+              </motion.div>
             </Link>
           )}
         </div>
