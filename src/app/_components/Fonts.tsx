@@ -1,8 +1,18 @@
 import { Newsreader, Oswald, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 
-const ABCFavoritMono = localFont({
-  src: "../../../public/fonts/ABCFavoritMonoVariable-Trial.woff2",
+// const ABCFavoritMono = localFont({
+//   src: "../../../public/fonts/ABCFavoritMonoVariable-Trial.woff2",
+//   variable: "--font-mono",
+// });
+
+const PPNeueMontreal = localFont({
+  src: "../../../public/fonts/PPNeueMontreal-Book.otf",
+  variable: "--font-sans",
+});
+
+const PPNeueMontrealMono = localFont({
+  src: "../../../public/fonts/PPNeueMontrealMono-Book.otf",
   variable: "--font-mono",
 });
 
@@ -25,7 +35,8 @@ const newsreader = Newsreader({
 });
 
 export const fonts = {
-  mono: ABCFavoritMono,
+  sans: PPNeueMontreal,
+  mono: PPNeueMontrealMono,
   oswald: oswald,
   playfair: playfair,
   crimson: newsreader,

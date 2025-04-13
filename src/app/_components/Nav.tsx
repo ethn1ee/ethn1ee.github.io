@@ -8,10 +8,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Fragment, useState } from "react";
 
-import { myEasing } from "../global/Easing";
-import NoiseBG from "../global/NoiseBG";
-import LinkButton from "../global/LinkButton";
 import toTitle from "@/lib/toTitle";
+import { myEasing } from "./Easing";
+import NoiseBG from "./NoiseBG";
+import LinkButton from "./LinkButton";
 
 const Nav = () => {
   const paths = usePathname();

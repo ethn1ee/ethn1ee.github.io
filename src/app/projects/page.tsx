@@ -1,11 +1,11 @@
 "use client";
 
-import { myEasing } from "@/components/global/Easing";
 import { getAllProjects } from "@/lib/projects";
 import { Project } from "@/types/project";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import ProjectCard from "./_components/ProjectCard";
+import { myEasing } from "../_components/Easing";
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);

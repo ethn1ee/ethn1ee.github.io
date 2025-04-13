@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 import InvisibleHeader from "./_components/InvisibleHeader";
-import { myEasing } from "@/components/global/Easing";
+
 import Clock from "./_components/Clock";
+import { myEasing } from "./_components/Easing";
 
 export default function Home() {
   return (
@@ -55,6 +56,9 @@ export default function Home() {
             <span className="leading-none">ATLANTA, GA &nbsp;</span>
             <Clock />
           </div>
+
+          {/* CANVAS */}
+          <canvas className="h-full w-full"></canvas>
         </section>
       </main>
     </>

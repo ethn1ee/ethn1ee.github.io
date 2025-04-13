@@ -1,5 +1,4 @@
 "use client";
-import { myEasing } from "@/components/global/Easing";
 
 import { Project } from "@/types/project";
 import Link from "next/link";
@@ -9,6 +8,7 @@ import {
   CodeBracketIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
+import { myEasing } from "@/app/_components/Easing";
 
 interface ProjectCardProps {
   project: Project;
@@ -26,20 +26,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   console.log(project);
 
   return (
-    <motion.div
+    <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      animate={
-        {
-          // borderColor: hovered
-          //   ? "var(--color-gray-200)"
-          //   : "var(--color-gray-400)",
-        }
-      }
       className="cursor-default rounded-xl border border-gray-400 p-4 backdrop-blur-2xl"
     >
       <div className="mb-2 flex items-center justify-between">
-        <p className="leading-none font-medium text-white">
+        <p className="leading-none font-bold text-white">
           {project.title.toUpperCase()}
         </p>
         <p className="leading-none text-gray-200">
@@ -60,7 +53,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         transition={{ duration: 0.5, ease: myEasing }}
         className="overflow-hidden"
       >
-        <p className="mt-4 text-gray-200">{project.description}</p>
+        <p className="font-sans mt-2 text-gray-200">{project.description}</p>
+
         <div className="mt-2 flex items-center justify-end gap-4">
           {project.github && (
             <Link
@@ -78,7 +72,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           )}
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

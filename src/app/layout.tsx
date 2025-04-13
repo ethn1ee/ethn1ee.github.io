@@ -1,4 +1,3 @@
-import { fontVariables } from "@/components/global/Fonts";
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -6,10 +5,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import Head from "next/head";
 import { metadataObject } from "./_components/Metadata";
-import NoiseBG from "@/components/global/NoiseBG";
-
-import Sidebar from "@/components/global/Sidebar";
-import Nav from "@/components/global/Nav";
+import NoiseBG from "./_components/NoiseBG";
+import Nav from "./_components/Nav";
+import Sidebar from "./_components/Sidebar";
+import { fontVariables } from "./_components/Fonts";
 
 export const metadata: Metadata = metadataObject;
 
@@ -26,7 +25,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="192x192" href="/logo.png" />
       </Head>
       <body
-        className={`${fontVariables} relative bg-black font-mono text-white antialiased min-h-screen`}
+        className={`${fontVariables} relative min-h-screen bg-black font-mono text-white antialiased`}
       >
         <NoiseBG />
         <Nav />
