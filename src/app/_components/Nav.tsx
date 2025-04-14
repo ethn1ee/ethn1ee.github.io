@@ -73,7 +73,7 @@ const Nav = () => {
           onClick={() => setExpanded(!expanded)}
           className="ml-auto block md:hidden"
         >
-          <Bars3Icon className="cursor-pointer" />
+          <Bars3Icon className="cursor-pointer text-white size-6" />
           <AnimatePresence>{expanded && <VerticalLinks />}</AnimatePresence>
         </div>
       </motion.nav>
