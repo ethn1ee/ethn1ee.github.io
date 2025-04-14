@@ -25,7 +25,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="192x192" href="/logo.png" />
       </Head>
       <body
-        className={`${fontVariables} relative min-h-screen bg-black font-mono text-white antialiased`}
+        className={`${fontVariables} relative min-h-screen overflow-hidden bg-black font-mono text-white antialiased`}
       >
         <NoiseBG />
         <Nav />

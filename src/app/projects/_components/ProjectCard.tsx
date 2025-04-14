@@ -49,7 +49,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       </p>
 
       <motion.div
-        animate={{ height: hovered ? "auto" : 0 }}
+        animate={{
+          height: hovered ? "auto" : 0,
+        }}
         transition={{ duration: 0.5, ease: myEasing }}
         className="overflow-hidden"
       >

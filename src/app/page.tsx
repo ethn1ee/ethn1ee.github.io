@@ -5,6 +5,7 @@ import InvisibleHeader from "./_components/InvisibleHeader";
 
 import Clock from "./_components/Clock";
 import { myEasing } from "./_components/Easing";
+// import Canvas from "./_components/Canvas";
 
 export default function Home() {
   return (
@@ -58,14 +59,19 @@ export default function Home() {
           </header>
 
           {/* BIO */}
-          <p className="absolute bottom-10 w-full max-w-[400px] px-4 sm:pl-20">
+          <motion.p
+            initial={{ opacity: 0, filter: "blur(2px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 1.5, duration: 1, ease: myEasing }}
+            className="absolute bottom-10 w-full max-w-[500px] px-4 text-gray-100 sm:pl-20"
+          >
             {`I’m a passionate student studying computer science and psychology.
             Here, I document my explorations in web, machine learning, and
             design.`.toUpperCase()}
-          </p>
+          </motion.p>
 
           {/* CANVAS */}
-          <canvas className="h-full w-full"></canvas>
+          {/* <Canvas /> */}
         </section>
       </main>
     </>
