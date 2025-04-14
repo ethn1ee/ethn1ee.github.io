@@ -2,7 +2,6 @@
 
 import logo from "@/../public/logo.svg";
 
-import MenuIcon from "@mui/icons-material/Menu";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,6 +12,7 @@ import { myEasing } from "./Easing";
 import NoiseBG from "./NoiseBG";
 import LinkButton from "./LinkButton";
 import Link from "next/link";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 
 const Nav = () => {
   const paths = usePathname();
@@ -73,7 +73,7 @@ const Nav = () => {
           onClick={() => setExpanded(!expanded)}
           className="ml-auto block md:hidden"
         >
-          <MenuIcon className="cursor-pointer" />
+          <Bars3Icon className="cursor-pointer" />
           <AnimatePresence>{expanded && <VerticalLinks />}</AnimatePresence>
         </div>
       </motion.nav>
