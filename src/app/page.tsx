@@ -66,8 +66,7 @@ export default function Home() {
             className="absolute bottom-10 w-full max-w-[500px] px-4 text-gray-100 sm:pl-20"
           >
             {`I’m a passionate student studying computer science and psychology.
-            Here, I document my explorations in web, machine learning, and
-            design.`.toUpperCase()}
+            Here, I document my explorations in web, machine learning, animation, design, and much more.`.toUpperCase()}
           </motion.p>
 
           {/* CANVAS */}
