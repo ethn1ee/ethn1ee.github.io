@@ -1,18 +1,10 @@
-# 🌐 Ethan's Web Portfolio
+# Ethan's Web Portfolio
 
-🚀 Welcome to my personal web portfolio! This is where I document my projects and experience in web development and beyond.
+Welcome to my personal web portfolio! This is where I document my explorations in web, machine learning, animation, design, and much more.
 
-![Portfolio Preview](./public/thumbnail.png)
+## Tech Stack
 
-## 🛠 Tech Stack
-
-- **⚡ Next.js** – Fast and SEO-friendly React framework
-- **📜 TypeScript** – Strongly typed JavaScript for better maintainability
-- **🎨 Tailwind CSS** – Utility-first CSS framework for rapid UI development
-- **🎬 Motion & GSAP** – Smooth animations and interactions
-
-## ✨ Features
-
-✔️ **Responsive Design** – Optimized for all devices  
-✔️ **Smooth Animations** – Powered by Motion & GSAP  
-✔️ **Fast & SEO-Friendly** – Built with Next.js for optimal performance
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Motion.dev
