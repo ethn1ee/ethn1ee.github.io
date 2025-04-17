@@ -24,6 +24,17 @@ export async function getAllProjectSlugs(): Promise<Pick<Project, "slug">[]> {
   `;
 }
 
+export async function getAllProjectCategories(): Promise<string[]> {
+  await setSearchPath();
+  const result = await sql`
+    SELECT category
+    FROM projects
+    GROUP BY category
+    ORDER BY COUNT(*) DESC
+  `;
+  return result.map((row) => row.category);
+}
+
 export async function getProjectBySlug(slug: string): Promise<Project> {
   await setSearchPath();
   const result = await sql`

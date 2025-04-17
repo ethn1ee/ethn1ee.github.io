@@ -1,21 +1,31 @@
 "use client";
 
-import { getAllProjects } from "@/lib/projects";
+import { getAllProjectCategories, getAllProjects } from "@/lib/projects";
 import { Project } from "@/types/project";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import ProjectCard from "./_components/ProjectCard";
 import { myEasing } from "../_components/Easing";
+import ProjectCard from "./_components/ProjectCard";
+import CategoryChip from "./_components/CategoryChip";
+import { CategoryContextProvider } from "./_components/contexts/CategoryContext";
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
       const allProjects = await getAllProjects();
       setProjects(allProjects);
     };
+
+    const fetchCategories = async () => {
+      const allCategories = await getAllProjectCategories();
+      setCategories(allCategories);
+    };
+
     fetchProjects();
+    fetchCategories();
   }, []);
 
   return (
@@ -40,17 +50,32 @@ const Projects = () => {
           POWERED BY CURIOSITY & CAFFEINE
         </motion.p>
       </header>
+
       <main className="p-4 sm:p-6">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5, ease: myEasing }}
-          className="flex flex-col gap-2 sm:gap-4"
-        >
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </motion.div>
+        <CategoryContextProvider>
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5, ease: myEasing }}
+            className="mb-4 flex gap-2"
+          >
+            <CategoryChip text="All" size="md" />
+            {categories.map((category, index) => (
+              <CategoryChip key={index} text={category} size="md" />
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.5, ease: myEasing }}
+            className="flex flex-col gap-2 sm:gap-4"
+          >
+            {projects.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </motion.div>
+        </CategoryContextProvider>
       </main>
     </div>
   );

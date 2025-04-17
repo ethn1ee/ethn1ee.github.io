@@ -1,20 +1,24 @@
 "use client";
 
-import { Project } from "@/types/project";
-import Link from "next/link";
-import { useState } from "react";
-import { motion } from "motion/react";
-import {
-  CodeBracketIcon,
-  ArrowTopRightOnSquareIcon,
-} from "@heroicons/react/24/outline";
 import { myEasing } from "@/app/_components/Easing";
+import { Project } from "@/types/project";
+import {
+  ArrowTopRightOnSquareIcon,
+  CodeBracketIcon,
+} from "@heroicons/react/24/outline";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import CategoryChip from "./CategoryChip";
+import { useCategoryContext } from "./contexts/CategoryContext";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const { currentCategory } = useCategoryContext();
+
   const [hovered, setHovered] = useState<boolean>(false);
   const isExternal = project.external_link !== null;
   const link = isExternal
@@ -23,22 +27,28 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       ? `/projects/${project.slug}`
       : null;
 
+  if (currentCategory !== null && currentCategory !== project.category)
+    return null;
+
   return (
-    <div
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: myEasing }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="cursor-default rounded-xl border border-gray-400 p-4 backdrop-blur-2xl"
+      className="cursor-default overflow-hidden rounded-xl border border-gray-400 p-4 backdrop-blur-2xl"
     >
-      <div className="mb-2 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="rounded-full border border-gray-400 bg-gray-500 px-2 text-xs">
-            {project.category.toUpperCase()}
-          </span>
-          <p className="leading-none font-bold text-white">
+      {/* HEADER */}
+      <div className="mb-2 flex justify-between gap-4">
+        <p className="leading-tight">
+          <CategoryChip text={project.category} size="sm" />
+          <span className="ml-2 font-bold text-white">
             {project.title.toUpperCase()}
-          </p>
-        </div>
-        <p className="leading-none text-gray-200">
+          </span>
+        </p>
+        <p className="leading-tight text-nowrap text-gray-200">
           {project.date
             .toLocaleString("en-US", {
               month: "short",
@@ -47,10 +57,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             .toUpperCase()}
         </p>
       </div>
+      {/* TAGS */}
       <p className="text-xs leading-none text-gray-300">
         {project.tags?.join(", ").toUpperCase()}
       </p>
-
       <motion.div
         animate={{
           height: hovered ? "auto" : 0,
@@ -58,6 +68,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         transition={{ duration: 0.5, ease: myEasing }}
         className="overflow-hidden"
       >
+        {/* DESCRIPTION */}
         {project.description && (
           <p
             className="mt-2 font-sans text-gray-200"
@@ -69,6 +80,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           />
         )}
 
+        {/* LINKS */}
         <div className="mt-2 flex items-center justify-end gap-2">
           {project.github && (
             <Link
@@ -104,7 +116,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           )}
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
