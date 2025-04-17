@@ -2,6 +2,7 @@ export interface Project {
   slug: string;
   title: string;
   date: Date;
+  category: string;
   tags: string[] | null;
   description: string | null;
   github: string | null;

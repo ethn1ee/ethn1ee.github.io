@@ -23,8 +23,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       ? `/projects/${project.slug}`
       : null;
 
-  console.log(project);
-
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -32,9 +30,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className="cursor-default rounded-xl border border-gray-400 p-4 backdrop-blur-2xl"
     >
       <div className="mb-2 flex items-center justify-between">
-        <p className="leading-none font-bold text-white">
-          {project.title.toUpperCase()}
-        </p>
+        <div className="flex items-center gap-2">
+          <span className="rounded-full border border-gray-400 bg-gray-500 px-2 text-xs">
+            {project.category.toUpperCase()}
+          </span>
+          <p className="leading-none font-bold text-white">
+            {project.title.toUpperCase()}
+          </p>
+        </div>
         <p className="leading-none text-gray-200">
           {project.date
             .toLocaleString("en-US", {
@@ -55,7 +58,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         transition={{ duration: 0.5, ease: myEasing }}
         className="overflow-hidden"
       >
-        <p className="mt-2 font-sans text-gray-200">{project.description}</p>
+        {project.description && (
+          <p
+            className="mt-2 font-sans text-gray-200"
+            dangerouslySetInnerHTML={{
+              __html: project.description
+                .replace(/\\n/g, "\n")
+                .replace(/\n/g, "<br />"),
+            }}
+          />
+        )}
 
         <div className="mt-2 flex items-center justify-end gap-2">
           {project.github && (

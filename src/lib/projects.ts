@@ -37,7 +37,7 @@ export async function createProject(project: Project): Promise<void> {
   await setSearchPath();
   await sql`
     INSERT INTO projects 
-    ${sql(project, "slug", "title", "date", "tags", "description", "github", "embed_link", "external_link")}
+    ${sql(project, "slug", "title", "date", "category", "tags", "description", "github", "embed_link", "external_link")}
   `;
 }
 
@@ -45,7 +45,7 @@ export async function updatePost(project: Project): Promise<void> {
   await setSearchPath();
   await sql`
     UPDATE projects
-    SET ${sql(project, "slug", "title", "date", "tags", "description", "github", "embed_link", "external_link")}
+    SET ${sql(project, "slug", "title", "date", "category", "tags", "description", "github", "embed_link", "external_link")}
     WHERE slug = ${project.slug}
   `;
 }
