@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CategoryChip from "./CategoryChip";
 import { useCategoryContext } from "./contexts/CategoryContext";
 
