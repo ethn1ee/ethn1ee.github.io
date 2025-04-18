@@ -28,9 +28,7 @@ const Project = async ({ params }: ProjectProps) => {
 export const generateStaticParams = async () => {
   const projects = await getAllProjectSlugs();
 
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects;
 };
 
 export default Project;
