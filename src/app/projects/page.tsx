@@ -30,13 +30,14 @@ const Projects = () => {
 
   return (
     <div className="sm:ml-10">
+      {/* <Canvas /> */}
       <header className="border-b border-gray-300 p-4 pt-[76px] sm:p-6 sm:pt-[84px]">
         <div className="mb-3 flex h-[30px] items-center sm:h-12">
           <motion.h2
             initial={{ height: "0%" }}
             animate={{ height: "100%" }}
             transition={{ delay: 0.3, duration: 1, ease: myEasing }}
-            className="font-oswald overflow-hidden text-3xl leading-none font-bold tracking-tighter sm:text-5xl"
+            className="font-oswald overflow-hidden pr-0.5 text-3xl leading-none font-bold tracking-tighter sm:text-5xl"
           >
             PROJECTS
           </motion.h2>

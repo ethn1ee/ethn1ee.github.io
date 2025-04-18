@@ -5,6 +5,7 @@ import InvisibleHeader from "./_components/InvisibleHeader";
 
 import Clock from "./_components/Clock";
 import { myEasing } from "./_components/Easing";
+import Canvas from "./_components/Canvas";
 // import Canvas from "./_components/Canvas";
 
 export default function Home() {
@@ -70,7 +71,7 @@ export default function Home() {
           </motion.p>
 
           {/* CANVAS */}
-          {/* <Canvas /> */}
+          <Canvas />
         </section>
       </main>
     </>

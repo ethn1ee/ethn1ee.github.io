@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useState } from "react";
 import CategoryChip from "./CategoryChip";
 import { useCategoryContext } from "./contexts/CategoryContext";
+import Canvas from "@/app/_components/Canvas";
 
 interface ProjectCardProps {
   project: Project;
@@ -38,8 +39,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       transition={{ duration: 0.5, ease: myEasing }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="cursor-default overflow-hidden rounded-xl border border-gray-400 p-4 backdrop-blur-2xl"
+      className="relative overflow-hidden rounded-xl border border-gray-400 p-4 backdrop-blur-xl"
     >
+      <Canvas />
+
       {/* HEADER */}
       <div className="mb-2 flex justify-between gap-4">
         <p className="leading-tight">
